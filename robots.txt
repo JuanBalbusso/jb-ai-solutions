@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jbalbusso.github.io/jb-ai-solutions/sitemap.xml
