@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,29 +53,41 @@
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#ffffff;--bg-soft:#f5f8fc;--bg-dark:#0e1b2c;
-  --ink:#0f1729;--ink-mid:#4b5567;--ink-soft:#7a8496;
+  --bg:#ffffff;--bg-soft:#f8f5f0;--bg-card:#ffffff;--bg-dark:#0e1b2c;
+  --ink:#171310;--ink-mid:#5b5347;--ink-soft:#8a8278;
   --primary:#123a72;--primary-bright:#1d56a3;--primary-soft:#e7eff9;
+  --orange:#e8621a;--orange-bright:#ff7a30;--orange-dim:#8a3a10;--orange-soft:#fdece0;
   --accent:#16a34a;--accent-bright:#1ec25f;--accent-soft:#e3f9ec;
-  --border:#e3e8f0;
-  --mono:'JetBrains Mono',monospace;--sans:'Inter',system-ui,sans-serif;
+  --border:#ece6dc;
+  --shadow-soft:0 30px 60px -20px rgba(23,19,16,0.18);
+  --mono:'JetBrains Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;--serif:'Playfair Display',Georgia,serif;
+}
+html[data-theme="dark"]{
+  --bg:#0d0d0d;--bg-soft:#141414;--bg-card:#1a1714;--bg-dark:#000000;
+  --ink:#f2ede6;--ink-mid:#c7bfb2;--ink-soft:#8a8278;
+  --primary:#8fb8ee;--primary-bright:#aecbf5;--primary-soft:rgba(143,184,238,0.12);
+  --orange:#ff7a30;--orange-bright:#ff9052;--orange-dim:#ffb98a;--orange-soft:rgba(232,98,26,0.16);
+  --accent:#22c55e;--accent-bright:#3ee077;--accent-soft:rgba(34,197,94,0.14);
+  --border:rgba(255,255,255,0.1);
+  --shadow-soft:0 30px 60px -20px rgba(0,0,0,0.55);
 }
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;transition:background 0.25s ease,color 0.25s ease;}
 img{max-width:100%;display:block;}
 a{color:inherit;}
-section{padding:6rem 1.5rem;}
-.wrap{max-width:1120px;margin:0 auto;}
-.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:0.6rem;margin-bottom:1.1rem;}
-.eyebrow::before{content:'';width:28px;height:2px;background:var(--accent);display:inline-block;}
-h1,h2,h3{font-weight:700;letter-spacing:-0.01em;color:var(--ink);}
+section{padding:6rem 1.5rem;position:relative;}
+.wrap{max-width:1120px;margin:0 auto;position:relative;z-index:1;}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:0.6rem;margin-bottom:1.1rem;}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--orange);display:inline-block;}
+h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-0.01em;color:var(--ink);}
 h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:0.75rem;}
 .section-sub{color:var(--ink-mid);max-width:620px;font-size:1.02rem;margin-bottom:3rem;}
-.btn{display:inline-flex;align-items:center;gap:0.6rem;font-weight:600;font-size:0.95rem;padding:0.9rem 1.6rem;border-radius:10px;text-decoration:none;transition:transform 0.15s ease,box-shadow 0.15s ease;border:none;cursor:pointer;}
+.btn{display:inline-flex;align-items:center;gap:0.6rem;font-weight:600;font-size:0.95rem;padding:0.9rem 1.6rem;border-radius:10px;text-decoration:none;transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease;border:none;cursor:pointer;font-family:var(--sans);}
 .btn:hover{transform:translateY(-2px);}
 .btn-accent{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(22,163,74,0.28);}
 .btn-accent:hover{background:var(--accent-bright);}
@@ -83,44 +95,53 @@ h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:0.75rem;}
 .btn-ghost:hover{border-color:var(--primary);}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
-.nav-inner{max-width:1120px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:var(--mono);font-weight:600;font-size:15px;color:var(--ink);letter-spacing:0.02em;display:flex;align-items:center;gap:0.5rem;}
-.logo span{color:var(--accent);}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-.nav-links a{font-size:14px;font-weight:500;color:var(--ink-mid);text-decoration:none;}
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(255,255,255,0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:background 0.25s ease,border-color 0.25s ease;}
+html[data-theme="dark"] nav{background:rgba(13,13,13,0.85);}
+.nav-inner{max-width:1180px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.logo{font-family:var(--mono);font-weight:600;font-size:15px;color:var(--ink);letter-spacing:0.02em;display:flex;align-items:center;gap:0.5rem;white-space:nowrap;}
+.logo span{color:var(--orange);}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
+.nav-links a{font-size:14px;font-weight:500;color:var(--ink-mid);text-decoration:none;white-space:nowrap;}
 .nav-links a:hover{color:var(--ink);}
 .nav-cta{font-size:13.5px;padding:0.6rem 1.1rem;}
-@media (max-width:760px){.nav-links a:not(.nav-cta){display:none;}}
+.icon-btn{background:transparent;border:1.5px solid var(--border);color:var(--ink-mid);width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;font-family:var(--mono);transition:border-color 0.15s ease,color 0.15s ease;}
+.icon-btn:hover{border-color:var(--orange);color:var(--orange);}
+@media (max-width:900px){.nav-links a:not(.nav-cta):not(.nav-quiensoy){display:none;}}
+@media (max-width:560px){.nav-quiensoy{display:none;}}
+
+/* AI decorative background */
+.ai-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.ai-bg svg{position:absolute;width:100%;height:100%;opacity:0.16;}
+html[data-theme="dark"] .ai-bg svg{opacity:0.22;}
+.ai-bg .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--orange) 0%,transparent 70%);opacity:0.14;filter:blur(10px);}
+.ai-bg .glow-1{top:-120px;right:-100px;}
+.ai-bg .glow-2{bottom:-160px;left:-120px;background:radial-gradient(circle,var(--primary) 0%,transparent 70%);}
+.dotgrid{position:absolute;inset:0;background-image:radial-gradient(var(--border) 1.4px,transparent 1.4px);background-size:28px 28px;opacity:0.7;z-index:0;pointer-events:none;}
 
 /* HERO */
-#hero{padding-top:9.5rem;padding-bottom:4rem;background:linear-gradient(180deg,var(--bg-soft) 0%,#fff 100%);}
+#hero{padding-top:9.5rem;padding-bottom:4rem;background:linear-gradient(180deg,var(--bg-soft) 0%,var(--bg) 100%);overflow:hidden;}
 .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:3.5rem;align-items:center;}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}}
-h1{font-size:clamp(2.3rem,5vw,3.4rem);line-height:1.12;margin-bottom:1.3rem;}
-h1 .hl{color:var(--primary);}
+h1{font-size:clamp(2.3rem,5vw,3.4rem);line-height:1.14;margin-bottom:1.3rem;}
+h1 .hl{color:var(--orange);}
 .hero-desc{color:var(--ink-mid);font-size:1.08rem;max-width:520px;margin-bottom:2rem;}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
 .hero-proof{display:flex;gap:2rem;flex-wrap:wrap;}
 .hero-proof div{font-family:var(--mono);}
-.hero-proof strong{display:block;font-size:1.4rem;color:var(--primary);}
+.hero-proof strong{display:block;font-size:1.4rem;color:var(--orange);}
 .hero-proof span{font-size:12.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.05em;}
-.hero-visual{background:var(--bg-dark);border-radius:20px;padding:1.1rem;box-shadow:0 30px 60px -20px rgba(14,27,44,0.35);}
+.hero-visual{background:var(--bg-dark);border-radius:20px;padding:1.1rem;box-shadow:var(--shadow-soft);}
 .hero-visual .browser-bar{display:flex;gap:6px;padding:0 0.4rem 0.8rem;}
 .hero-visual .browser-bar span{width:10px;height:10px;border-radius:50%;background:#33475f;}
 .hero-visual img{border-radius:10px;}
 .hero-visual figcaption{color:#9fb0c4;font-family:var(--mono);font-size:11.5px;text-align:center;padding-top:0.7rem;}
-
-/* LOGOS / trust strip placeholder */
-.trust-strip{padding:2.5rem 1.5rem;border-bottom:1px solid var(--border);}
-.trust-strip p{text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.2rem;}
 
 /* PROBLEMA */
 #problema{background:var(--bg);}
 .problema-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 @media (max-width:800px){.problema-grid{grid-template-columns:1fr;}}
 .problema-card{background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;padding:1.8rem;}
-.problema-card .num{font-family:var(--mono);color:var(--accent);font-size:13px;margin-bottom:0.8rem;}
+.problema-card .num{font-family:var(--mono);color:var(--orange);font-size:13px;margin-bottom:0.8rem;}
 .problema-card h3{font-size:1.05rem;margin-bottom:0.5rem;}
 .problema-card p{color:var(--ink-mid);font-size:0.94rem;}
 
@@ -128,8 +149,8 @@ h1 .hl{color:var(--primary);}
 #servicios{background:var(--bg-soft);}
 .servicios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;}
 @media (max-width:900px){.servicios-grid{grid-template-columns:1fr;}}
-.servicio-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:2.2rem;}
-.servicio-icon{width:48px;height:48px;border-radius:12px;background:var(--primary-soft);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.3rem;}
+.servicio-card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:2.2rem;}
+.servicio-icon{width:48px;height:48px;border-radius:12px;background:var(--orange-soft);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.3rem;}
 .servicio-card h3{font-size:1.15rem;margin-bottom:0.6rem;}
 .servicio-card p{color:var(--ink-mid);font-size:0.95rem;margin-bottom:1rem;}
 .servicio-card ul{list-style:none;font-size:0.88rem;color:var(--ink-mid);}
@@ -142,34 +163,36 @@ h1 .hl{color:var(--primary);}
 @media (max-width:900px){.proceso-steps{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.proceso-steps{grid-template-columns:1fr;}}
 .step{position:relative;padding-top:0.5rem;}
-.step .step-num{counter-increment:step;font-family:var(--mono);font-size:2.2rem;font-weight:700;color:var(--primary-soft);-webkit-text-stroke:1.5px var(--primary);margin-bottom:0.8rem;}
-.step h3{font-size:1rem;margin-bottom:0.5rem;}
+.step .step-num{counter-increment:step;font-family:var(--mono);font-size:2.2rem;font-weight:700;color:var(--orange-soft);-webkit-text-stroke:1.5px var(--orange);margin-bottom:0.8rem;}
+.step h3{font-size:1rem;margin-bottom:0.5rem;font-family:var(--sans);}
 .step p{color:var(--ink-mid);font-size:0.9rem;}
 
 /* DIFERENCIALES */
 #diferenciales{background:var(--bg-dark);color:#fff;}
-#diferenciales .section-sub{color:#a9b8cc;}
-#diferenciales .eyebrow{color:var(--accent-bright);}
+#diferenciales .section-sub{color:#c7bfb2;}
+#diferenciales .eyebrow{color:var(--orange-bright);}
+#diferenciales .eyebrow::before{background:var(--orange-bright);}
 #diferenciales h2{color:#fff;}
 .dif-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
 @media (max-width:760px){.dif-grid{grid-template-columns:1fr;}}
 .dif-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.8rem;}
-.dif-card h3{color:#fff;font-size:1.05rem;margin-bottom:0.5rem;display:flex;gap:0.6rem;align-items:center;}
-.dif-card p{color:#a9b8cc;font-size:0.92rem;}
+.dif-card h3{color:#fff;font-size:1.05rem;margin-bottom:0.5rem;display:flex;gap:0.6rem;align-items:center;font-family:var(--sans);}
+.dif-card p{color:#c7bfb2;font-size:0.92rem;}
 
 /* CASO REAL */
 #caso{background:var(--bg-soft);}
 .caso-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
 @media (max-width:860px){.caso-grid{grid-template-columns:1fr;}}
-.caso-shot{background:var(--bg-dark);border-radius:16px;padding:0.9rem;box-shadow:0 20px 50px -20px rgba(14,27,44,0.3);}
+.caso-shot{background:var(--bg-dark);border-radius:16px;padding:0.9rem;box-shadow:var(--shadow-soft);}
 .caso-shot img{border-radius:8px;}
 .caso-text p{color:var(--ink-mid);margin-bottom:1rem;}
-.caso-quote{border-left:3px solid var(--accent);padding-left:1.2rem;font-style:italic;color:var(--ink);margin:1.5rem 0;}
+.caso-quote{border-left:3px solid var(--orange);padding-left:1.2rem;font-style:italic;color:var(--ink);margin:1.5rem 0;}
 
 /* CTA FINAL */
-#cta-final{background:linear-gradient(135deg,var(--primary) 0%,#0e1b2c 100%);color:#fff;text-align:center;}
+#cta-final{background:linear-gradient(135deg,var(--primary) 0%,var(--bg-dark) 100%);color:#fff;text-align:center;overflow:hidden;}
+html[data-theme="dark"] #cta-final{background:linear-gradient(135deg,#1a2f4d 0%,#000 100%);}
 #cta-final h2{color:#fff;}
-#cta-final p{color:#c9d6e6;max-width:520px;margin:0 auto 2rem;}
+#cta-final p{color:#dfe6ee;max-width:520px;margin:0 auto 2rem;}
 
 /* FOOTER */
 footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
@@ -186,65 +209,104 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
   <div class="nav-inner">
     <div class="logo">JB<span>·</span>AI Solutions</div>
     <ul class="nav-links">
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proceso">Cómo trabajamos</a></li>
-      <li><a href="#caso">Caso real</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-      <li><a class="btn btn-accent nav-cta" href="https://wa.me/13512150324?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20JB%20AI%20Solutions%20y%20quiero%20consultar%20por%20un%20proyecto." target="_blank" rel="noopener">Escribinos</a></li>
+      <li><a href="#servicios" data-i18n="nav_servicios">Servicios</a></li>
+      <li><a href="#proceso" data-i18n="nav_proceso">Cómo trabajamos</a></li>
+      <li><a href="#caso" data-i18n="nav_caso">Caso real</a></li>
+      <li><a href="#contacto" data-i18n="nav_contacto">Contacto</a></li>
+      <li><a class="nav-quiensoy" href="https://juanbalbusso.github.io/" target="_blank" rel="noopener" data-i18n="nav_quiensoy">Quién soy</a></li>
+      <li><button class="icon-btn" id="langToggle" type="button" aria-label="Cambiar idioma / Switch language">EN</button></li>
+      <li><button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema">🌙</button></li>
+      <li><a class="btn btn-accent nav-cta" id="waNav" href="https://wa.me/13512150324?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20JB%20AI%20Solutions%20y%20quiero%20consultar%20por%20un%20proyecto." target="_blank" rel="noopener" data-i18n="nav_escribinos">Escribinos</a></li>
     </ul>
   </div>
 </nav>
 
 <section id="hero">
+  <div class="dotgrid"></div>
+  <div class="ai-bg">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="var(--orange)" stroke-width="1.2" fill="none">
+        <line x1="60" y1="90" x2="220" y2="60"></line>
+        <line x1="220" y1="60" x2="360" y2="150"></line>
+        <line x1="360" y1="150" x2="230" y2="230"></line>
+        <line x1="230" y1="230" x2="60" y2="90"></line>
+        <line x1="360" y1="150" x2="520" y2="90"></line>
+        <line x1="520" y1="90" x2="700" y2="170"></line>
+        <line x1="700" y1="170" x2="640" y2="330"></line>
+        <line x1="640" y1="330" x2="470" y2="300"></line>
+        <line x1="470" y1="300" x2="360" y2="150"></line>
+        <line x1="470" y1="300" x2="230" y2="230"></line>
+        <line x1="640" y1="330" x2="790" y2="420"></line>
+        <line x1="230" y1="230" x2="120" y2="380"></line>
+        <line x1="120" y1="380" x2="270" y2="470"></line>
+        <line x1="270" y1="470" x2="470" y2="300"></line>
+      </g>
+      <g fill="var(--orange)">
+        <circle cx="60" cy="90" r="5"></circle>
+        <circle cx="220" cy="60" r="4"></circle>
+        <circle cx="360" cy="150" r="6"></circle>
+        <circle cx="230" cy="230" r="5"></circle>
+        <circle cx="520" cy="90" r="4"></circle>
+        <circle cx="700" cy="170" r="5"></circle>
+        <circle cx="640" cy="330" r="6"></circle>
+        <circle cx="470" cy="300" r="5"></circle>
+        <circle cx="790" cy="420" r="4"></circle>
+        <circle cx="120" cy="380" r="4"></circle>
+        <circle cx="270" cy="470" r="5"></circle>
+      </g>
+    </svg>
+  </div>
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Agentes de IA · RAG · Automatización · Data Science</div>
-      <h1>IA que <span class="hl">conoce tu información</span> y trabaja con tus procesos</h1>
-      <p class="hero-desc">
+      <div class="eyebrow" data-i18n="hero_eyebrow">Agentes de IA · RAG · Automatización · Data Science</div>
+      <h1 data-i18n="hero_h1">IA que <span class="hl">conoce tu información</span> y trabaja con tus procesos</h1>
+      <p class="hero-desc" data-i18n="hero_desc">
         Diseñamos agentes de IA con RAG que responden solo con el contexto real de tus documentos,
         automatizamos procesos conectando las herramientas que ya usás, y analizamos tus datos para
         que decidas con información, no a ciegas. Puede ser un asistente para tus clientes, uno para
         que lo use tu propio equipo puertas adentro (contratos, manuales, políticas internas), o ambos.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-accent" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20proyecto%20de%20IA%20para%20mi%20negocio." target="_blank" rel="noopener">💬 Charlemos por WhatsApp</a>
-        <a class="btn btn-ghost" href="#proceso">Ver cómo trabajamos</a>
+        <a class="btn btn-accent wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20proyecto%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20proyecto%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20project%20for%20my%20business." target="_blank" rel="noopener" data-i18n="hero_btn_wa">💬 Charlemos por WhatsApp</a>
+        <a class="btn btn-ghost" href="#proceso" data-i18n="hero_btn_proceso">Ver cómo trabajamos</a>
       </div>
       <div class="hero-proof">
-        <div><strong>RAG</strong><span>Solo responde lo que sabe</span></div>
-        <div><strong>100%</strong><span>A medida de tu proceso</span></div>
-        <div><strong>0</strong><span>Respuestas inventadas</span></div>
+        <div><strong>RAG</strong><span data-i18n="proof1">Solo responde lo que sabe</span></div>
+        <div><strong>100%</strong><span data-i18n="proof2">A medida de tu proceso</span></div>
+        <div><strong>0</strong><span data-i18n="proof3">Respuestas inventadas</span></div>
       </div>
     </div>
     <div class="hero-visual">
       <div class="browser-bar"><span></span><span></span><span></span></div>
       <!-- IMAGEN 1: captura real de una conversación con tu agente (por ej. el de WhatsApp, como demo) -->
       <img src="captura-whatsapp-demo.png" alt="Conversación real con un agente de IA de JB AI Solutions">
-      <figcaption>demo en vivo — uno de nuestros agentes en producción</figcaption>
+      <figcaption data-i18n="hero_caption">demo en vivo — uno de nuestros agentes en producción</figcaption>
     </div>
   </div>
 </section>
 
 <section id="problema">
   <div class="wrap">
-    <div class="eyebrow">El problema</div>
-    <h2>La información y los procesos no escalan solos</h2>
-    <p class="section-sub">No es solo "no llego a contestar el WhatsApp" — es información dispersa, procesos manuales que se repiten, y decisiones que se toman sin mirar los datos que ya tenés.</p>
+    <div class="eyebrow" data-i18n="problema_eyebrow">El problema</div>
+    <h2 data-i18n="problema_h2">La información y los procesos no escalan solos</h2>
+    <p class="section-sub" data-i18n="problema_sub">No es solo "no llego a contestar el WhatsApp" — es información dispersa, procesos manuales que se repiten, y decisiones que se toman sin mirar los datos que ya tenés.</p>
     <div class="problema-grid">
       <div class="problema-card">
         <div class="num">01</div>
-        <h3>Información dispersa</h3>
-        <p>Contratos, manuales, políticas internas, planillas — repartidos en mil lugares, y nadie los encuentra rápido cuando hace falta.</p>
+        <h3 data-i18n="problema1_h3">Información dispersa</h3>
+        <p data-i18n="problema1_p">Contratos, manuales, políticas internas, planillas — repartidos en mil lugares, y nadie los encuentra rápido cuando hace falta.</p>
       </div>
       <div class="problema-card">
         <div class="num">02</div>
-        <h3>Procesos manuales que se repiten</h3>
-        <p>Atención al cliente, carga de datos, seguimiento — tareas que se hacen a mano todos los días y no escalan con tu equipo.</p>
+        <h3 data-i18n="problema2_h3">Procesos manuales que se repiten</h3>
+        <p data-i18n="problema2_p">Atención al cliente, carga de datos, seguimiento — tareas que se hacen a mano todos los días y no escalan con tu equipo.</p>
       </div>
       <div class="problema-card">
         <div class="num">03</div>
-        <h3>Decisiones sin mirar los datos</h3>
-        <p>Tenés información valiosa acumulada, pero nadie tiene el tiempo (ni las herramientas) para analizarla y sacarle provecho.</p>
+        <h3 data-i18n="problema3_h3">Decisiones sin mirar los datos</h3>
+        <p data-i18n="problema3_p">Tenés información valiosa acumulada, pero nadie tiene el tiempo (ni las herramientas) para analizarla y sacarle provecho.</p>
       </div>
     </div>
   </div>
@@ -252,38 +314,38 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 
 <section id="servicios">
   <div class="wrap">
-    <div class="eyebrow">Qué hacemos</div>
-    <h2>Tres formas de ponerle IA a tu negocio</h2>
-    <p class="section-sub">No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.</p>
+    <div class="eyebrow" data-i18n="servicios_eyebrow">Qué hacemos</div>
+    <h2 data-i18n="servicios_h2">Tres formas de ponerle IA a tu negocio</h2>
+    <p class="section-sub" data-i18n="servicios_sub">No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.</p>
     <div class="servicios-grid">
       <div class="servicio-card">
         <div class="servicio-icon">🧠</div>
-        <h3>Agentes de IA &amp; RAG</h3>
-        <p>Agentes que responden con el contexto real de tus propias fuentes — contratos, manuales, políticas, catálogos. Para atención al cliente, o para que tu equipo consulte información interna sin perder tiempo buscando.</p>
+        <h3 data-i18n="serv1_h3">Agentes de IA &amp; RAG</h3>
+        <p data-i18n="serv1_p">Agentes que responden con el contexto real de tus propias fuentes — contratos, manuales, políticas, catálogos. Para atención al cliente, o para que tu equipo consulte información interna sin perder tiempo buscando.</p>
         <ul>
-          <li>Solo responde lo que está en tus documentos</li>
-          <li>Para clientes, para tu equipo, o ambos</li>
-          <li>Integrable a WhatsApp, web o herramientas internas</li>
+          <li data-i18n="serv1_li1">Solo responde lo que está en tus documentos</li>
+          <li data-i18n="serv1_li2">Para clientes, para tu equipo, o ambos</li>
+          <li data-i18n="serv1_li3">Integrable a WhatsApp, web o herramientas internas</li>
         </ul>
       </div>
       <div class="servicio-card">
         <div class="servicio-icon">⚙️</div>
-        <h3>Automatización de procesos</h3>
-        <p>Conectamos tus sistemas con las herramientas que ya usás — calendario, planillas, CRM, sistema de turnos — para que la información fluya sola entre ellos.</p>
+        <h3 data-i18n="serv2_h3">Automatización de procesos</h3>
+        <p data-i18n="serv2_p">Conectamos tus sistemas con las herramientas que ya usás — calendario, planillas, CRM, sistema de turnos — para que la información fluya sola entre ellos.</p>
         <ul>
-          <li>Integraciones a medida</li>
-          <li>Sin cambiar las herramientas que ya usás</li>
-          <li>Menos carga administrativa manual</li>
+          <li data-i18n="serv2_li1">Integraciones a medida</li>
+          <li data-i18n="serv2_li2">Sin cambiar las herramientas que ya usás</li>
+          <li data-i18n="serv2_li3">Menos carga administrativa manual</li>
         </ul>
       </div>
       <div class="servicio-card">
         <div class="servicio-icon">📊</div>
-        <h3>Data Science &amp; analítica</h3>
-        <p>Análisis de tus datos para entender qué está pasando en tu negocio hoy, y modelos para anticipar qué va a pasar mañana.</p>
+        <h3 data-i18n="serv3_h3">Data Science &amp; analítica</h3>
+        <p data-i18n="serv3_p">Análisis de tus datos para entender qué está pasando en tu negocio hoy, y modelos para anticipar qué va a pasar mañana.</p>
         <ul>
-          <li>Modelos predictivos</li>
-          <li>Dashboards y reportes</li>
-          <li>Decisiones basadas en datos reales</li>
+          <li data-i18n="serv3_li1">Modelos predictivos</li>
+          <li data-i18n="serv3_li2">Dashboards y reportes</li>
+          <li data-i18n="serv3_li3">Decisiones basadas en datos reales</li>
         </ul>
       </div>
     </div>
@@ -292,29 +354,29 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 
 <section id="proceso">
   <div class="wrap">
-    <div class="eyebrow">Cómo trabajamos</div>
-    <h2>Un proceso pensado con vos, no un configurador de autoservicio</h2>
-    <p class="section-sub">No completás un formulario y esperás que una IA adivine tu negocio. Lo diseñamos juntos.</p>
+    <div class="eyebrow" data-i18n="proceso_eyebrow">Cómo trabajamos</div>
+    <h2 data-i18n="proceso_h2">Un proceso pensado junto a vos, paso a paso</h2>
+    <p class="section-sub" data-i18n="proceso_sub">Nos involucramos en cada etapa para que el resultado se ajuste exactamente a como trabaja tu negocio.</p>
     <div class="proceso-steps">
       <div class="step">
         <div class="step-num">01</div>
-        <h3>Hablamos de tu proceso real</h3>
-        <p>Qué información manejás, qué se repite todos los días, y quién lo va a usar — tus clientes, tu equipo, o vos.</p>
+        <h3 data-i18n="step1_h3">Hablamos de tu proceso real</h3>
+        <p data-i18n="step1_p">Qué información manejás, qué se repite todos los días, y quién lo va a usar — tus clientes, tu equipo, o vos.</p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <h3>Diseñamos el agente con vos</h3>
-        <p>Un flujo de conversación pensado para tu negocio, no una plantilla genérica.</p>
+        <h3 data-i18n="step2_h3">Diseñamos el agente con vos</h3>
+        <p data-i18n="step2_p">Un flujo pensado específicamente para tu negocio y tu forma de trabajar.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h3>Lo probamos juntos</h3>
-        <p>Antes de que hable con un solo cliente real, lo testeamos a fondo.</p>
+        <h3 data-i18n="step3_h3">Lo probamos juntos</h3>
+        <p data-i18n="step3_p">Antes de que hable con un solo cliente real, lo testeamos a fondo.</p>
       </div>
       <div class="step">
         <div class="step-num">04</div>
-        <h3>Lo acompañamos</h3>
-        <p>Ajustamos el agente con el tiempo, a medida que tu negocio cambia.</p>
+        <h3 data-i18n="step4_h3">Lo acompañamos</h3>
+        <p data-i18n="step4_p">Ajustamos el agente con el tiempo, a medida que tu negocio cambia.</p>
       </div>
     </div>
   </div>
@@ -322,25 +384,25 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 
 <section id="diferenciales">
   <div class="wrap">
-    <div class="eyebrow">Por qué nosotros</div>
-    <h2>No competimos por quién tiene más botones</h2>
-    <p class="section-sub">Hay plataformas con más funciones. Nosotros construimos la lógica que esas plataformas no pueden armar por vos.</p>
+    <div class="eyebrow" data-i18n="dif_eyebrow">Por qué nosotros</div>
+    <h2 data-i18n="dif_h2">Así encaramos cada proyecto</h2>
+    <p class="section-sub" data-i18n="dif_sub">Estos son los principios que guían todo lo que construimos.</p>
     <div class="dif-grid">
       <div class="dif-card">
-        <h3>🎯 Hecho a medida, no una plantilla</h3>
-        <p>Cada regla está escrita para tu proceso real — no un asistente genérico configurado a las apuradas, ni atado a un solo canal.</p>
+        <h3 data-i18n="dif1_h3">🎯 Hecho a medida</h3>
+        <p data-i18n="dif1_p">Cada regla y cada flujo están pensados para tu proceso real, no para encajarte en una plantilla.</p>
       </div>
       <div class="dif-card">
-        <h3>🔒 Tus datos son tuyos</h3>
-        <p>Tu agente corre en tu propia infraestructura. Tu información no vive adentro de la base de datos de un tercero.</p>
+        <h3 data-i18n="dif2_h3">🔒 Tus datos son tuyos</h3>
+        <p data-i18n="dif2_p">Tu agente corre en tu propia infraestructura — tu información no queda alojada en un tercero.</p>
       </div>
       <div class="dif-card">
-        <h3>📈 No es solo un canal de mensajería</h3>
-        <p>RAG, automatización y Data Science combinados — el mismo enfoque sirve para atención al cliente, uso interno de tu equipo, o análisis de tus datos.</p>
+        <h3 data-i18n="dif3_h3">🧩 Un enfoque, muchos usos</h3>
+        <p data-i18n="dif3_p">RAG, automatización y Data Science combinados: el mismo enfoque sirve para atención al cliente, uso interno de tu equipo, o análisis de tus datos.</p>
       </div>
       <div class="dif-card">
-        <h3>🤝 Trabajás directo con quien lo construye</h3>
-        <p>Sin mesa de ayuda ni tickets de soporte. Hablás conmigo, la misma persona que escribe el código.</p>
+        <h3 data-i18n="dif4_h3">🤝 Trabajás directo conmigo</h3>
+        <p data-i18n="dif4_p">Sin intermediarios: hablás con la misma persona que diseña y escribe el código de tu agente.</p>
       </div>
     </div>
   </div>
@@ -353,23 +415,26 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
       <img src="captura-admin-panel.png" alt="Panel de administración de conversaciones de JB AI Solutions">
     </div>
     <div class="caso-text">
-      <div class="eyebrow">Un ejemplo, no el único uso</div>
-      <h2>Así funciona uno de nuestros agentes, en producción</h2>
-      <p>Este es apenas un caso de uso: un agente que atiende WhatsApp para JB AI Solutions. Entiende el tipo de
+      <div class="eyebrow" data-i18n="caso_eyebrow">Un ejemplo, no el único uso</div>
+      <h2 data-i18n="caso_h2">Así funciona uno de nuestros agentes, en producción</h2>
+      <p data-i18n="caso_p">Este es apenas un caso de uso: un agente que atiende WhatsApp para JB AI Solutions. Entiende el tipo de
         proyecto que busca cada contacto, sigue un checklist de descubrimiento según cada caso, y avisa apenas
         hay un lead calificado — con nombre, contacto y detalle del proyecto. El mismo enfoque (RAG + reglas a
         medida) sirve para un agente interno, un asistente en tu web, o un análisis de datos.</p>
-      <div class="caso-quote">"Necesitábamos algo que respondiera consultas de agenda y precios sin inventar nada — y que consultara nuestros propios documentos." — ejemplo real de una consulta calificada por este agente</div>
-      <a class="btn btn-ghost" href="https://wa.me/13512150324?text=Hola!%20Quiero%20ver%20una%20demo%20de%20un%20agente." target="_blank" rel="noopener">Pedir una demo en vivo</a>
+      <div class="caso-quote" data-i18n="caso_quote">"Necesitábamos algo que respondiera consultas de agenda y precios sin inventar nada — y que consultara nuestros propios documentos." — ejemplo real de una consulta calificada por este agente</div>
+      <a class="btn btn-ghost wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20ver%20una%20demo%20de%20un%20agente." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20ver%20una%20demo%20de%20un%20agente." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20see%20a%20demo%20of%20an%20agent." target="_blank" rel="noopener" data-i18n="caso_btn">Pedir una demo en vivo</a>
     </div>
   </div>
 </section>
 
 <section id="cta-final">
+  <div class="ai-bg">
+    <div class="glow glow-1"></div>
+  </div>
   <div class="wrap">
-    <h2>¿Le contamos a tu negocio cómo se vería esto?</h2>
-    <p>Escribinos por WhatsApp y en minutos te contamos si tu proceso encaja para automatizarlo.</p>
-    <a class="btn btn-accent" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." target="_blank" rel="noopener">💬 Escribinos por WhatsApp</a>
+    <h2 data-i18n="cta_h2">¿Le contamos a tu negocio cómo se vería esto?</h2>
+    <p data-i18n="cta_p">Escribinos por WhatsApp y en minutos te contamos si tu proceso encaja para automatizarlo.</p>
+    <a class="btn btn-accent wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20agent%20for%20my%20business." target="_blank" rel="noopener" data-i18n="cta_btn">💬 Escribinos por WhatsApp</a>
   </div>
 </section>
 
@@ -378,13 +443,139 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
     <div>© 2026 JB AI Solutions · Córdoba, Argentina</div>
     <div>
       <a href="mailto:jbalbusso@gmail.com">jbalbusso@gmail.com</a> ·
-      <a href="https://wa.me/13512150324" target="_blank" rel="noopener">Chateá con nuestro agente</a> ·
-      <a href="https://juanbalbusso.github.io/" target="_blank" rel="noopener">Portfolio de Juan Balbusso</a>
+      <a href="https://wa.me/13512150324" target="_blank" rel="noopener" data-i18n="footer_wa">Chateá con nuestro agente</a> ·
+      <a href="https://juanbalbusso.github.io/" target="_blank" rel="noopener" data-i18n="footer_portfolio">Portfolio de Juan Balbusso</a>
     </div>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">💬</a>
+<a class="wa-float wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20agent%20for%20my%20business." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp" id="waFloat">💬</a>
+
+<script>
+(function(){
+  var i18n = {
+    es: {
+      nav_servicios:"Servicios", nav_proceso:"Cómo trabajamos", nav_caso:"Caso real", nav_contacto:"Contacto",
+      nav_quiensoy:"Quién soy", nav_escribinos:"Escribinos",
+      hero_eyebrow:"Agentes de IA · RAG · Automatización · Data Science",
+      hero_h1:'IA que <span class="hl">conoce tu información</span> y trabaja con tus procesos',
+      hero_desc:"Diseñamos agentes de IA con RAG que responden solo con el contexto real de tus documentos, automatizamos procesos conectando las herramientas que ya usás, y analizamos tus datos para que decidas con información, no a ciegas. Puede ser un asistente para tus clientes, uno para que lo use tu propio equipo puertas adentro (contratos, manuales, políticas internas), o ambos.",
+      hero_btn_wa:"💬 Charlemos por WhatsApp", hero_btn_proceso:"Ver cómo trabajamos",
+      proof1:"Solo responde lo que sabe", proof2:"A medida de tu proceso", proof3:"Respuestas inventadas",
+      hero_caption:"demo en vivo — uno de nuestros agentes en producción",
+      problema_eyebrow:"El problema", problema_h2:"La información y los procesos no escalan solos",
+      problema_sub:'No es solo "no llego a contestar el WhatsApp" — es información dispersa, procesos manuales que se repiten, y decisiones que se toman sin mirar los datos que ya tenés.',
+      problema1_h3:"Información dispersa", problema1_p:"Contratos, manuales, políticas internas, planillas — repartidos en mil lugares, y nadie los encuentra rápido cuando hace falta.",
+      problema2_h3:"Procesos manuales que se repiten", problema2_p:"Atención al cliente, carga de datos, seguimiento — tareas que se hacen a mano todos los días y no escalan con tu equipo.",
+      problema3_h3:"Decisiones sin mirar los datos", problema3_p:"Tenés información valiosa acumulada, pero nadie tiene el tiempo (ni las herramientas) para analizarla y sacarle provecho.",
+      servicios_eyebrow:"Qué hacemos", servicios_h2:"Tres formas de ponerle IA a tu negocio",
+      servicios_sub:"No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.",
+      serv1_h3:"Agentes de IA &amp; RAG", serv1_p:"Agentes que responden con el contexto real de tus propias fuentes — contratos, manuales, políticas, catálogos. Para atención al cliente, o para que tu equipo consulte información interna sin perder tiempo buscando.",
+      serv1_li1:"Solo responde lo que está en tus documentos", serv1_li2:"Para clientes, para tu equipo, o ambos", serv1_li3:"Integrable a WhatsApp, web o herramientas internas",
+      serv2_h3:"Automatización de procesos", serv2_p:"Conectamos tus sistemas con las herramientas que ya usás — calendario, planillas, CRM, sistema de turnos — para que la información fluya sola entre ellos.",
+      serv2_li1:"Integraciones a medida", serv2_li2:"Sin cambiar las herramientas que ya usás", serv2_li3:"Menos carga administrativa manual",
+      serv3_h3:"Data Science &amp; analítica", serv3_p:"Análisis de tus datos para entender qué está pasando en tu negocio hoy, y modelos para anticipar qué va a pasar mañana.",
+      serv3_li1:"Modelos predictivos", serv3_li2:"Dashboards y reportes", serv3_li3:"Decisiones basadas en datos reales",
+      proceso_eyebrow:"Cómo trabajamos", proceso_h2:"Un proceso pensado junto a vos, paso a paso",
+      proceso_sub:"Nos involucramos en cada etapa para que el resultado se ajuste exactamente a como trabaja tu negocio.",
+      step1_h3:"Hablamos de tu proceso real", step1_p:"Qué información manejás, qué se repite todos los días, y quién lo va a usar — tus clientes, tu equipo, o vos.",
+      step2_h3:"Diseñamos el agente con vos", step2_p:"Un flujo pensado específicamente para tu negocio y tu forma de trabajar.",
+      step3_h3:"Lo probamos juntos", step3_p:"Antes de que hable con un solo cliente real, lo testeamos a fondo.",
+      step4_h3:"Lo acompañamos", step4_p:"Ajustamos el agente con el tiempo, a medida que tu negocio cambia.",
+      dif_eyebrow:"Por qué nosotros", dif_h2:"Así encaramos cada proyecto",
+      dif_sub:"Estos son los principios que guían todo lo que construimos.",
+      dif1_h3:"🎯 Hecho a medida", dif1_p:"Cada regla y cada flujo están pensados para tu proceso real, no para encajarte en una plantilla.",
+      dif2_h3:"🔒 Tus datos son tuyos", dif2_p:"Tu agente corre en tu propia infraestructura — tu información no queda alojada en un tercero.",
+      dif3_h3:"🧩 Un enfoque, muchos usos", dif3_p:"RAG, automatización y Data Science combinados: el mismo enfoque sirve para atención al cliente, uso interno de tu equipo, o análisis de tus datos.",
+      dif4_h3:"🤝 Trabajás directo conmigo", dif4_p:"Sin intermediarios: hablás con la misma persona que diseña y escribe el código de tu agente.",
+      caso_eyebrow:"Un ejemplo, no el único uso", caso_h2:"Así funciona uno de nuestros agentes, en producción",
+      caso_p:"Este es apenas un caso de uso: un agente que atiende WhatsApp para JB AI Solutions. Entiende el tipo de proyecto que busca cada contacto, sigue un checklist de descubrimiento según cada caso, y avisa apenas hay un lead calificado — con nombre, contacto y detalle del proyecto. El mismo enfoque (RAG + reglas a medida) sirve para un agente interno, un asistente en tu web, o un análisis de datos.",
+      caso_quote:'"Necesitábamos algo que respondiera consultas de agenda y precios sin inventar nada — y que consultara nuestros propios documentos." — ejemplo real de una consulta calificada por este agente',
+      caso_btn:"Pedir una demo en vivo",
+      cta_h2:"¿Le contamos a tu negocio cómo se vería esto?", cta_p:"Escribinos por WhatsApp y en minutos te contamos si tu proceso encaja para automatizarlo.", cta_btn:"💬 Escribinos por WhatsApp",
+      footer_wa:"Chateá con nuestro agente", footer_portfolio:"Portfolio de Juan Balbusso"
+    },
+    en: {
+      nav_servicios:"Services", nav_proceso:"How we work", nav_caso:"Case study", nav_contacto:"Contact",
+      nav_quiensoy:"About me", nav_escribinos:"Message us",
+      hero_eyebrow:"AI Agents · RAG · Automation · Data Science",
+      hero_h1:'AI that <span class="hl">knows your information</span> and works with your processes',
+      hero_desc:"We design AI agents with RAG that answer using only the real context of your documents, automate processes by connecting the tools you already use, and analyze your data so you decide with real information, not guesswork. It can be an assistant for your customers, one for your own team to use internally (contracts, manuals, internal policies), or both.",
+      hero_btn_wa:"💬 Let's talk on WhatsApp", hero_btn_proceso:"See how we work",
+      proof1:"Only answers what it knows", proof2:"Tailored to your process", proof3:"Made-up answers",
+      hero_caption:"live demo — one of our agents in production",
+      problema_eyebrow:"The problem", problema_h2:"Information and processes don't scale on their own",
+      problema_sub:"It's not just ‘I can't keep up with WhatsApp’ — it's scattered information, manual processes that repeat, and decisions made without looking at the data you already have.",
+      problema1_h3:"Scattered information", problema1_p:"Contracts, manuals, internal policies, spreadsheets — spread across a dozen places, and no one finds them fast when it matters.",
+      problema2_h3:"Manual processes that repeat", problema2_p:"Customer support, data entry, follow-ups — tasks done by hand every day that don't scale with your team.",
+      problema3_h3:"Decisions made without looking at data", problema3_p:"You have valuable information piling up, but no one has the time (or the tools) to analyze it and put it to use.",
+      servicios_eyebrow:"What we do", servicios_h2:"Three ways to bring AI into your business",
+      servicios_sub:"We don't sell a generic platform — we design the specific solution your business needs, whether for your customers, your team, or both.",
+      serv1_h3:"AI Agents &amp; RAG", serv1_p:"Agents that answer using the real context of your own sources — contracts, manuals, policies, catalogs. For customer support, or for your team to look up internal information without wasting time searching.",
+      serv1_li1:"Only answers what's in your documents", serv1_li2:"For customers, your team, or both", serv1_li3:"Works with WhatsApp, web, or internal tools",
+      serv2_h3:"Process automation", serv2_p:"We connect your systems with the tools you already use — calendar, spreadsheets, CRM, booking systems — so information flows between them on its own.",
+      serv2_li1:"Custom integrations", serv2_li2:"No need to change the tools you already use", serv2_li3:"Less manual administrative work",
+      serv3_h3:"Data Science &amp; analytics", serv3_p:"Analysis of your data to understand what's happening in your business today, and models to anticipate what's coming tomorrow.",
+      serv3_li1:"Predictive models", serv3_li2:"Dashboards and reports", serv3_li3:"Decisions based on real data",
+      proceso_eyebrow:"How we work", proceso_h2:"A process built together with you, step by step",
+      proceso_sub:"We're involved in every stage so the result fits exactly how your business works.",
+      step1_h3:"We talk about your real process", step1_p:"What information you handle, what repeats every day, and who's going to use it — your customers, your team, or you.",
+      step2_h3:"We design the agent with you", step2_p:"A flow built specifically for your business and the way you work.",
+      step3_h3:"We test it together", step3_p:"Before it talks to a single real customer, we test it thoroughly.",
+      step4_h3:"We stick with it", step4_p:"We keep tuning the agent over time, as your business changes.",
+      dif_eyebrow:"Why us", dif_h2:"This is how we approach every project",
+      dif_sub:"These are the principles behind everything we build.",
+      dif1_h3:"🎯 Built to fit", dif1_p:"Every rule and flow is designed around your real process, not squeezed into a template.",
+      dif2_h3:"🔒 Your data stays yours", dif2_p:"Your agent runs on your own infrastructure — your information isn't hosted by a third party.",
+      dif3_h3:"🧩 One approach, many uses", dif3_p:"RAG, automation and Data Science combined: the same approach works for customer support, internal team use, or data analysis.",
+      dif4_h3:"🤝 You work directly with me", dif4_p:"No middlemen: you talk to the same person who designs and writes your agent's code.",
+      caso_eyebrow:"One example, not the only use", caso_h2:"This is how one of our agents works, in production",
+      caso_p:"This is just one use case: an agent that handles WhatsApp for JB AI Solutions. It understands the kind of project each contact is looking for, follows a discovery checklist for each case, and notifies as soon as there's a qualified lead — with name, contact info, and project details. The same approach (RAG + custom rules) works for an internal agent, a website assistant, or a data analysis.",
+      caso_quote:'"We needed something that answered scheduling and pricing questions without making anything up — and that checked our own documents." — real example of a lead qualified by this agent',
+      caso_btn:"Request a live demo",
+      cta_h2:"Want to see how this could look for your business?", cta_p:"Message us on WhatsApp and in minutes we'll tell you if your process is a fit for automation.", cta_btn:"💬 Message us on WhatsApp",
+      footer_wa:"Chat with our agent", footer_portfolio:"Juan Balbusso's portfolio"
+    }
+  };
+
+  var htmlEl = document.documentElement;
+  var themeBtn = document.getElementById('themeToggle');
+  var langBtn = document.getElementById('langToggle');
+
+  function applyTheme(theme){
+    htmlEl.setAttribute('data-theme', theme);
+    themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('jb_theme', theme);
+  }
+  function applyLang(lang){
+    htmlEl.setAttribute('lang', lang);
+    var dict = i18n[lang] || i18n.es;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.wa-link').forEach(function(el){
+      var attr = lang === 'en' ? 'data-wa-en' : 'data-wa-es';
+      var url = el.getAttribute(attr);
+      if (url) el.setAttribute('href', url);
+    });
+    langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
+    localStorage.setItem('jb_lang', lang);
+  }
+
+  var savedTheme = localStorage.getItem('jb_theme') || 'light';
+  var savedLang = localStorage.getItem('jb_lang') || 'es';
+  applyTheme(savedTheme);
+  applyLang(savedLang);
+
+  themeBtn.addEventListener('click', function(){
+    applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+  langBtn.addEventListener('click', function(){
+    applyLang(htmlEl.getAttribute('lang') === 'es' ? 'en' : 'es');
+  });
+})();
+</script>
 
 </body>
 </html>
