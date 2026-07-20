@@ -80,9 +80,10 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;transition:background 0.25s ease,color 0.25s ease;}
 img{max-width:100%;display:block;}
 a{color:inherit;}
-section{padding:6rem 1.5rem;position:relative;background:var(--bg);}
+section{padding:6rem 1.5rem;position:relative;background:var(--bg);border-top:1px solid var(--border);}
+#hero{border-top:none;}
 .wrap{max-width:1120px;margin:0 auto;position:relative;z-index:1;}
-.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin-bottom:1.1rem;}
+.eyebrow{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--primary);display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin-bottom:1.1rem;}
 .eyebrow::before{content:'';width:28px;height:2px;background:var(--orange);display:inline-block;}
 h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-0.01em;color:var(--ink);}
 h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:0.75rem;}
@@ -90,11 +91,11 @@ h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:0.75rem;}
 .hl2{color:var(--accent);font-weight:700;}
 .btn{display:inline-flex;align-items:center;gap:0.6rem;font-weight:600;font-size:0.95rem;padding:0.9rem 1.6rem;border-radius:10px;text-decoration:none;transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease;border:none;cursor:pointer;font-family:var(--sans);}
 .btn:hover{transform:translateY(-3px);}
-.btn-accent{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(22,163,74,0.28);animation:pulseGlow 2.8s ease-in-out infinite;}
+.btn-accent{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(22,163,74,0.28);animation:pulseGlow 1.8s ease-in-out infinite;}
 .btn-accent:hover{background:var(--accent-bright);}
 .btn-ghost{background:transparent;color:var(--primary);border:1.5px solid var(--border);}
 .btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
-@keyframes pulseGlow{0%,100%{box-shadow:0 8px 24px rgba(22,163,74,0.28)}50%{box-shadow:0 8px 34px rgba(22,163,74,0.5),0 0 0 7px rgba(22,163,74,0.09)}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 8px 24px rgba(22,163,74,0.32),0 0 0 0 rgba(22,163,74,0.45)}50%{box-shadow:0 8px 30px rgba(22,163,74,0.5),0 0 0 12px rgba(22,163,74,0)}}
 @media (prefers-reduced-motion:reduce){.btn-accent,.wa-float,.reveal{animation:none!important;transition:none!important;}}
 
 /* NAV */
@@ -116,7 +117,7 @@ html[data-theme="dark"] nav{background:rgba(13,13,13,0.88);}
 @media (max-width:560px){.nav-quiensoy{display:none;}}
 
 /* reveal on scroll */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s);}
+.reveal{opacity:0;transform:translateY(44px) scale(0.98);transition:opacity .8s ease,transform .8s ease;transition-delay:var(--d,0s);}
 .reveal.is-visible{opacity:1;transform:none;}
 
 /* Centered section header */
@@ -195,8 +196,15 @@ h1 .hl{color:var(--orange);}
 @media (max-width:860px){.caso-gallery{grid-template-columns:1fr;}}
 .caso-shot{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 20px 40px -25px rgba(23,19,16,0.2);transition:transform 0.25s ease,box-shadow 0.25s ease;}
 .caso-shot:hover{transform:translateY(-6px);box-shadow:0 25px 45px -20px rgba(23,19,16,0.28);}
-.caso-shot img{width:100%;display:block;}
+.caso-shot img{width:100%;display:block;cursor:zoom-in;}
 .caso-shot figcaption{padding:0.9rem 1rem;font-size:0.85rem;color:var(--ink-mid);text-align:center;}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(10,8,6,0.88);z-index:200;display:none;align-items:center;justify-content:center;padding:2rem;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:min(92vw,1100px);max-height:86vh;border-radius:10px;box-shadow:0 30px 70px rgba(0,0,0,0.5);}
+.lightbox-close{position:absolute;top:1.2rem;right:1.5rem;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.15s ease;}
+.lightbox-close:hover{background:rgba(255,255,255,0.25);}
 .caso-text{max-width:700px;margin:0 auto;text-align:center;}
 .caso-text p{color:var(--ink-mid);margin-bottom:1rem;}
 .caso-quote{border-left:3px solid var(--orange);padding-left:1.2rem;font-style:italic;color:var(--ink);margin:1.5rem auto;text-align:left;max-width:600px;}
@@ -213,7 +221,7 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
 .footer-inner a{text-decoration:none;color:var(--ink-mid);}
 
 /* Whatsapp floating button */
-.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;background:var(--accent);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 10px 30px rgba(22,163,74,0.4);text-decoration:none;animation:pulseGlow 2.8s ease-in-out infinite;transition:transform 0.15s ease;}
+.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;background:var(--accent);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 10px 30px rgba(22,163,74,0.4);text-decoration:none;animation:pulseGlow 1.8s ease-in-out infinite;transition:transform 0.15s ease;}
 .wa-float:hover{transform:scale(1.08);}
 </style>
 </head>
@@ -241,9 +249,9 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       <div class="eyebrow" data-i18n="hero_eyebrow">🤖 Agentes de IA · 🗂️ RAG · ⚙️ Automatización · 📊 Data Science</div>
       <h1 data-i18n="hero_h1">IA que <span class="hl">conoce tu información</span> y trabaja con tus procesos</h1>
       <p class="hero-desc" data-i18n="hero_desc">
-        Diseñamos <span class="hl2">agentes de IA</span> con <span class="hl2">RAG</span> que responden solo con el contexto real de tus documentos,
-        <span class="hl2">automatizamos procesos</span> conectando las herramientas que ya usás, y <span class="hl2">analizamos tus datos</span> para
-        que decidas con información, no a ciegas.
+        Diseñamos <span class="hl2">agentes de IA</span> con <span class="hl2">RAG</span>,
+        <span class="hl2">automatizamos procesos</span> y <span class="hl2">analizamos tus datos</span>
+        para que decidas con información real, no a ciegas.
       </p>
       <div class="hero-actions">
         <a class="btn btn-accent wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20proyecto%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20proyecto%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20project%20for%20my%20business." target="_blank" rel="noopener" data-i18n="hero_btn_wa">💬 Charlemos por WhatsApp</a>
@@ -277,23 +285,23 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
     <div class="section-head reveal">
       <div class="eyebrow" data-i18n="problema_eyebrow">El problema</div>
       <h2 data-i18n="problema_h2">La información y los procesos no escalan solos</h2>
-      <p class="section-sub" data-i18n="problema_sub">No es solo "no llego a contestar el WhatsApp" — es información dispersa, procesos manuales que se repiten, y decisiones que se toman sin mirar los datos que ya tenés.</p>
+      <p class="section-sub" data-i18n="problema_sub">Información dispersa, procesos manuales que se repiten, y decisiones sin mirar los datos que ya tenés.</p>
     </div>
     <div class="problema-grid">
       <div class="problema-card reveal" style="--d:.05s">
         <div class="num">01</div>
         <h3 data-i18n="problema1_h3">Información dispersa</h3>
-        <p data-i18n="problema1_p">Contratos, manuales, políticas internas, planillas — repartidos en mil lugares, y nadie los encuentra rápido cuando hace falta.</p>
+        <p data-i18n="problema1_p">Contratos, manuales, planillas — repartidos en mil lugares, difíciles de encontrar rápido.</p>
       </div>
       <div class="problema-card reveal" style="--d:.15s">
         <div class="num">02</div>
         <h3 data-i18n="problema2_h3">Procesos manuales que se repiten</h3>
-        <p data-i18n="problema2_p">Atención al cliente, carga de datos, seguimiento — tareas que se hacen a mano todos los días y no escalan con tu equipo.</p>
+        <p data-i18n="problema2_p">Atención, carga de datos, seguimiento — tareas manuales que no escalan con tu equipo.</p>
       </div>
       <div class="problema-card reveal" style="--d:.25s">
         <div class="num">03</div>
         <h3 data-i18n="problema3_h3">Decisiones sin mirar los datos</h3>
-        <p data-i18n="problema3_p">Tenés información valiosa acumulada, pero nadie tiene el tiempo (ni las herramientas) para analizarla y sacarle provecho.</p>
+        <p data-i18n="problema3_p">Tenés información valiosa, pero nadie tiene el tiempo ni las herramientas para aprovecharla.</p>
       </div>
     </div>
   </div>
@@ -304,13 +312,13 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
     <div class="section-head reveal">
       <div class="eyebrow" data-i18n="servicios_eyebrow">Qué hacemos</div>
       <h2 data-i18n="servicios_h2">Tres formas de ponerle IA a tu negocio</h2>
-      <p class="section-sub" data-i18n="servicios_sub">No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.</p>
+      <p class="section-sub" data-i18n="servicios_sub">Diseñamos la solución específica que tu negocio necesita — para tus clientes, tu equipo, o ambos.</p>
     </div>
     <div class="servicios-grid">
       <div class="servicio-card reveal" style="--d:.05s">
         <div class="servicio-icon">🧠</div>
         <h3 data-i18n="serv1_h3">Agentes de IA &amp; RAG</h3>
-        <p data-i18n="serv1_p">Agentes que responden con el contexto real de tus propias fuentes — contratos, manuales, políticas, catálogos. Para atención al cliente, o para que tu equipo consulte información interna sin perder tiempo buscando.</p>
+        <p data-i18n="serv1_p">Responden con el contexto real de tus fuentes — contratos, manuales, políticas, catálogos. Para clientes o para tu equipo.</p>
         <ul>
           <li data-i18n="serv1_li1">Solo responde lo que está en tus documentos</li>
           <li data-i18n="serv1_li2">Para clientes, para tu equipo, o ambos</li>
@@ -320,7 +328,7 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       <div class="servicio-card reveal" style="--d:.15s">
         <div class="servicio-icon">⚙️</div>
         <h3 data-i18n="serv2_h3">Automatización de procesos</h3>
-        <p data-i18n="serv2_p">Conectamos tus sistemas con las herramientas que ya usás — calendario, planillas, CRM, sistema de turnos — para que la información fluya sola entre ellos.</p>
+        <p data-i18n="serv2_p">Conectamos tus herramientas — calendario, planillas, CRM, turnos — para que la información fluya sola.</p>
         <ul>
           <li data-i18n="serv2_li1">Integraciones a medida</li>
           <li data-i18n="serv2_li2">Sin cambiar las herramientas que ya usás</li>
@@ -330,7 +338,7 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       <div class="servicio-card reveal" style="--d:.25s">
         <div class="servicio-icon">📊</div>
         <h3 data-i18n="serv3_h3">Data Science &amp; analítica</h3>
-        <p data-i18n="serv3_p">Análisis de tus datos para entender qué está pasando en tu negocio hoy, y modelos para anticipar qué va a pasar mañana.</p>
+        <p data-i18n="serv3_p">Entendé qué pasa en tu negocio hoy, y anticipá qué va a pasar mañana.</p>
         <ul>
           <li data-i18n="serv3_li1">Modelos predictivos</li>
           <li data-i18n="serv3_li2">Dashboards y reportes</li>
@@ -346,13 +354,13 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
     <div class="section-head reveal">
       <div class="eyebrow" data-i18n="proceso_eyebrow">Cómo trabajamos</div>
       <h2 data-i18n="proceso_h2">Un proceso pensado junto a vos, paso a paso</h2>
-      <p class="section-sub" data-i18n="proceso_sub">Nos involucramos en cada etapa para que el resultado se ajuste exactamente a como trabaja tu negocio.</p>
+      <p class="section-sub" data-i18n="proceso_sub">Te acompañamos en cada etapa para que el resultado se ajuste a tu negocio.</p>
     </div>
     <div class="proceso-steps">
       <div class="step reveal" style="--d:.05s">
         <div class="step-icon">🗣️</div>
         <h3 data-i18n="step1_h3">1. Hablamos de tu proceso real</h3>
-        <p data-i18n="step1_p">Qué información manejás, qué se repite todos los días, y quién lo va a usar — tus clientes, tu equipo, o vos.</p>
+        <p data-i18n="step1_p">Qué información manejás, qué se repite, y quién lo va a usar.</p>
       </div>
       <div class="step reveal" style="--d:.12s">
         <div class="step-icon">✏️</div>
@@ -391,7 +399,7 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       </div>
       <div class="dif-card reveal" style="--d:.19s">
         <h3 data-i18n="dif3_h3">🧩 Un enfoque, muchos usos</h3>
-        <p data-i18n="dif3_p">RAG, automatización y Data Science combinados: el mismo enfoque sirve para atención al cliente, uso interno de tu equipo, o análisis de tus datos.</p>
+        <p data-i18n="dif3_p">RAG, automatización y Data Science combinados en un mismo enfoque.</p>
       </div>
       <div class="dif-card reveal" style="--d:.26s">
         <h3 data-i18n="dif4_h3">🤝 Trabajás directo conmigo</h3>
@@ -422,10 +430,7 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       </figure>
     </div>
     <div class="caso-text reveal" style="--d:.1s">
-      <p data-i18n="caso_p">Este es apenas un caso de uso: un agente que atiende WhatsApp para JB AI Solutions. Entiende el tipo de
-        proyecto que busca cada contacto, sigue un checklist de descubrimiento según cada caso, y avisa apenas
-        hay un lead calificado — con nombre, contacto y detalle del proyecto. El mismo enfoque (RAG + reglas a
-        medida) sirve para un agente interno, un asistente en tu web, o un análisis de datos.</p>
+      <p data-i18n="caso_p">Un agente que atiende WhatsApp para JB AI Solutions: entiende el proyecto de cada contacto y avisa apenas hay un lead calificado, con nombre, contacto y detalle. El mismo enfoque sirve para un agente interno, un asistente web, o un análisis de datos.</p>
       <div class="caso-quote" data-i18n="caso_quote">"Necesitábamos algo que respondiera consultas de agenda y precios sin inventar nada — y que consultara nuestros propios documentos." — ejemplo real de una consulta calificada por este agente</div>
       <a class="btn btn-ghost wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20ver%20una%20demo%20de%20un%20agente." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20ver%20una%20demo%20de%20un%20agente." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20see%20a%20demo%20of%20an%20agent." target="_blank" rel="noopener" data-i18n="caso_btn">Pedir una demo en vivo</a>
     </div>
@@ -455,6 +460,11 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
 
 <a class="wa-float wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20agent%20for%20my%20business." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp" id="waFloat">💬</a>
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <script>
 (function(){
   var i18n = {
@@ -463,25 +473,25 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       nav_quiensoy:"Quién soy", nav_escribinos:"Escribinos",
       hero_eyebrow:"🤖 Agentes de IA · 🗂️ RAG · ⚙️ Automatización · 📊 Data Science",
       hero_h1:'IA que <span class="hl">conoce tu información</span> y trabaja con tus procesos',
-      hero_desc:'Diseñamos <span class="hl2">agentes de IA</span> con <span class="hl2">RAG</span> que responden solo con el contexto real de tus documentos, <span class="hl2">automatizamos procesos</span> conectando las herramientas que ya usás, y <span class="hl2">analizamos tus datos</span> para que decidas con información, no a ciegas.',
+      hero_desc:'Diseñamos <span class="hl2">agentes de IA</span> con <span class="hl2">RAG</span>, <span class="hl2">automatizamos procesos</span> y <span class="hl2">analizamos tus datos</span> para que decidas con información real, no a ciegas.',
       hero_btn_wa:"💬 Charlemos por WhatsApp", hero_btn_proceso:"Ver cómo trabajamos",
       proof1:"Solo responde lo que sabe", proof2:"A medida de tu proceso", proof3:"Respuestas inventadas",
       problema_eyebrow:"El problema", problema_h2:"La información y los procesos no escalan solos",
-      problema_sub:'No es solo "no llego a contestar el WhatsApp" — es información dispersa, procesos manuales que se repiten, y decisiones que se toman sin mirar los datos que ya tenés.',
-      problema1_h3:"Información dispersa", problema1_p:"Contratos, manuales, políticas internas, planillas — repartidos en mil lugares, y nadie los encuentra rápido cuando hace falta.",
-      problema2_h3:"Procesos manuales que se repiten", problema2_p:"Atención al cliente, carga de datos, seguimiento — tareas que se hacen a mano todos los días y no escalan con tu equipo.",
-      problema3_h3:"Decisiones sin mirar los datos", problema3_p:"Tenés información valiosa acumulada, pero nadie tiene el tiempo (ni las herramientas) para analizarla y sacarle provecho.",
+      problema_sub:'Información dispersa, procesos manuales que se repiten, y decisiones sin mirar los datos que ya tenés.',
+      problema1_h3:"Información dispersa", problema1_p:"Contratos, manuales, planillas — repartidos en mil lugares, difíciles de encontrar rápido.",
+      problema2_h3:"Procesos manuales que se repiten", problema2_p:"Atención, carga de datos, seguimiento — tareas manuales que no escalan con tu equipo.",
+      problema3_h3:"Decisiones sin mirar los datos", problema3_p:"Tenés información valiosa, pero nadie tiene el tiempo ni las herramientas para aprovecharla.",
       servicios_eyebrow:"Qué hacemos", servicios_h2:"Tres formas de ponerle IA a tu negocio",
-      servicios_sub:"No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.",
-      serv1_h3:"Agentes de IA &amp; RAG", serv1_p:"Agentes que responden con el contexto real de tus propias fuentes — contratos, manuales, políticas, catálogos. Para atención al cliente, o para que tu equipo consulte información interna sin perder tiempo buscando.",
+      servicios_sub:"Diseñamos la solución específica que tu negocio necesita — para tus clientes, tu equipo, o ambos.",
+      serv1_h3:"Agentes de IA &amp; RAG", serv1_p:"Responden con el contexto real de tus fuentes — contratos, manuales, políticas, catálogos. Para clientes o para tu equipo.",
       serv1_li1:"Solo responde lo que está en tus documentos", serv1_li2:"Para clientes, para tu equipo, o ambos", serv1_li3:"Integrable a WhatsApp, web o herramientas internas",
-      serv2_h3:"Automatización de procesos", serv2_p:"Conectamos tus sistemas con las herramientas que ya usás — calendario, planillas, CRM, sistema de turnos — para que la información fluya sola entre ellos.",
+      serv2_h3:"Automatización de procesos", serv2_p:"Conectamos tus herramientas — calendario, planillas, CRM, turnos — para que la información fluya sola.",
       serv2_li1:"Integraciones a medida", serv2_li2:"Sin cambiar las herramientas que ya usás", serv2_li3:"Menos carga administrativa manual",
-      serv3_h3:"Data Science &amp; analítica", serv3_p:"Análisis de tus datos para entender qué está pasando en tu negocio hoy, y modelos para anticipar qué va a pasar mañana.",
+      serv3_h3:"Data Science &amp; analítica", serv3_p:"Entendé qué pasa en tu negocio hoy, y anticipá qué va a pasar mañana.",
       serv3_li1:"Modelos predictivos", serv3_li2:"Dashboards y reportes", serv3_li3:"Decisiones basadas en datos reales",
       proceso_eyebrow:"Cómo trabajamos", proceso_h2:"Un proceso pensado junto a vos, paso a paso",
-      proceso_sub:"Nos involucramos en cada etapa para que el resultado se ajuste exactamente a como trabaja tu negocio.",
-      step1_h3:"1. Hablamos de tu proceso real", step1_p:"Qué información manejás, qué se repite todos los días, y quién lo va a usar — tus clientes, tu equipo, o vos.",
+      proceso_sub:"Te acompañamos en cada etapa para que el resultado se ajuste a tu negocio.",
+      step1_h3:"1. Hablamos de tu proceso real", step1_p:"Qué información manejás, qué se repite, y quién lo va a usar.",
       step2_h3:"2. Diseñamos el agente con vos", step2_p:"Un flujo pensado específicamente para tu negocio y tu forma de trabajar.",
       step3_h3:"3. Lo probamos juntos", step3_p:"Antes de que hable con un solo cliente real, lo testeamos a fondo.",
       step4_h3:"4. Lo acompañamos", step4_p:"Ajustamos el agente con el tiempo, a medida que tu negocio cambia.",
@@ -489,13 +499,13 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       dif_sub:"Estos son los principios que guían todo lo que construimos.",
       dif1_h3:"🎯 Hecho a medida", dif1_p:"Cada regla y cada flujo están pensados para tu proceso real, no para encajarte en una plantilla.",
       dif2_h3:"🔒 Tus datos son tuyos", dif2_p:"Tu agente corre en tu propia infraestructura — tu información no queda alojada en un tercero.",
-      dif3_h3:"🧩 Un enfoque, muchos usos", dif3_p:"RAG, automatización y Data Science combinados: el mismo enfoque sirve para atención al cliente, uso interno de tu equipo, o análisis de tus datos.",
+      dif3_h3:"🧩 Un enfoque, muchos usos", dif3_p:"RAG, automatización y Data Science combinados en un mismo enfoque.",
       dif4_h3:"🤝 Trabajás directo conmigo", dif4_p:"Sin intermediarios: hablás con la misma persona que diseña y escribe el código de tu agente.",
       caso_eyebrow:"Un ejemplo, no el único uso", caso_h2:"Así funciona uno de nuestros agentes, en producción",
       caso_shot1_caption:"1. El agente conversa y califica el lead por WhatsApp",
       caso_shot2_caption:"2. Vos lo ves al instante en tu panel",
       caso_shot3_caption:"3. Te llega la notificación con todo el detalle",
-      caso_p:"Este es apenas un caso de uso: un agente que atiende WhatsApp para JB AI Solutions. Entiende el tipo de proyecto que busca cada contacto, sigue un checklist de descubrimiento según cada caso, y avisa apenas hay un lead calificado — con nombre, contacto y detalle del proyecto. El mismo enfoque (RAG + reglas a medida) sirve para un agente interno, un asistente en tu web, o un análisis de datos.",
+      caso_p:"Un agente que atiende WhatsApp para JB AI Solutions: entiende el proyecto de cada contacto y avisa apenas hay un lead calificado, con nombre, contacto y detalle. El mismo enfoque sirve para un agente interno, un asistente web, o un análisis de datos.",
       caso_quote:'"Necesitábamos algo que respondiera consultas de agenda y precios sin inventar nada — y que consultara nuestros propios documentos." — ejemplo real de una consulta calificada por este agente',
       caso_btn:"Pedir una demo en vivo",
       cta_h2:"¿Le contamos a tu negocio cómo se vería esto?", cta_p:"Escribinos por WhatsApp y en minutos te contamos si tu proceso encaja para automatizarlo.", cta_btn:"💬 Escribinos por WhatsApp",
@@ -506,25 +516,25 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       nav_quiensoy:"About me", nav_escribinos:"Message us",
       hero_eyebrow:"🤖 AI Agents · 🗂️ RAG · ⚙️ Automation · 📊 Data Science",
       hero_h1:'AI that <span class="hl">knows your information</span> and works with your processes',
-      hero_desc:'We design <span class="hl2">AI agents</span> with <span class="hl2">RAG</span> that answer using only the real context of your documents, <span class="hl2">automate processes</span> by connecting the tools you already use, and <span class="hl2">analyze your data</span> so you decide with real information, not guesswork.',
+      hero_desc:'We design <span class="hl2">AI agents</span> with <span class="hl2">RAG</span>, <span class="hl2">automate processes</span>, and <span class="hl2">analyze your data</span> so you decide with real information, not guesswork.',
       hero_btn_wa:"💬 Let's talk on WhatsApp", hero_btn_proceso:"See how we work",
       proof1:"Only answers what it knows", proof2:"Tailored to your process", proof3:"Made-up answers",
       problema_eyebrow:"The problem", problema_h2:"Information and processes don't scale on their own",
-      problema_sub:"It's not just ‘I can't keep up with WhatsApp’ — it's scattered information, manual processes that repeat, and decisions made without looking at the data you already have.",
-      problema1_h3:"Scattered information", problema1_p:"Contracts, manuals, internal policies, spreadsheets — spread across a dozen places, and no one finds them fast when it matters.",
-      problema2_h3:"Manual processes that repeat", problema2_p:"Customer support, data entry, follow-ups — tasks done by hand every day that don't scale with your team.",
-      problema3_h3:"Decisions made without looking at data", problema3_p:"You have valuable information piling up, but no one has the time (or the tools) to analyze it and put it to use.",
+      problema_sub:"Scattered information, manual processes that repeat, and decisions made without looking at the data you already have.",
+      problema1_h3:"Scattered information", problema1_p:"Contracts, manuals, spreadsheets — spread across a dozen places, hard to find fast.",
+      problema2_h3:"Manual processes that repeat", problema2_p:"Support, data entry, follow-ups — manual tasks that don't scale with your team.",
+      problema3_h3:"Decisions made without looking at data", problema3_p:"You have valuable information, but no one has the time or tools to put it to use.",
       servicios_eyebrow:"What we do", servicios_h2:"Three ways to bring AI into your business",
-      servicios_sub:"We don't sell a generic platform — we design the specific solution your business needs, whether for your customers, your team, or both.",
-      serv1_h3:"AI Agents &amp; RAG", serv1_p:"Agents that answer using the real context of your own sources — contracts, manuals, policies, catalogs. For customer support, or for your team to look up internal information without wasting time searching.",
+      servicios_sub:"We design the specific solution your business needs — for your customers, your team, or both.",
+      serv1_h3:"AI Agents &amp; RAG", serv1_p:"Answer using the real context of your own sources — contracts, manuals, policies, catalogs. For customers or your team.",
       serv1_li1:"Only answers what's in your documents", serv1_li2:"For customers, your team, or both", serv1_li3:"Works with WhatsApp, web, or internal tools",
-      serv2_h3:"Process automation", serv2_p:"We connect your systems with the tools you already use — calendar, spreadsheets, CRM, booking systems — so information flows between them on its own.",
+      serv2_h3:"Process automation", serv2_p:"We connect your tools — calendar, spreadsheets, CRM, bookings — so information flows on its own.",
       serv2_li1:"Custom integrations", serv2_li2:"No need to change the tools you already use", serv2_li3:"Less manual administrative work",
-      serv3_h3:"Data Science &amp; analytics", serv3_p:"Analysis of your data to understand what's happening in your business today, and models to anticipate what's coming tomorrow.",
+      serv3_h3:"Data Science &amp; analytics", serv3_p:"Understand what's happening in your business today, and anticipate what's coming tomorrow.",
       serv3_li1:"Predictive models", serv3_li2:"Dashboards and reports", serv3_li3:"Decisions based on real data",
       proceso_eyebrow:"How we work", proceso_h2:"A process built together with you, step by step",
-      proceso_sub:"We're involved in every stage so the result fits exactly how your business works.",
-      step1_h3:"1. We talk about your real process", step1_p:"What information you handle, what repeats every day, and who's going to use it — your customers, your team, or you.",
+      proceso_sub:"We're with you at every stage so the result fits your business.",
+      step1_h3:"1. We talk about your real process", step1_p:"What information you handle, what repeats, and who's going to use it.",
       step2_h3:"2. We design the agent with you", step2_p:"A flow built specifically for your business and the way you work.",
       step3_h3:"3. We test it together", step3_p:"Before it talks to a single real customer, we test it thoroughly.",
       step4_h3:"4. We stick with it", step4_p:"We keep tuning the agent over time, as your business changes.",
@@ -532,13 +542,13 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
       dif_sub:"These are the principles behind everything we build.",
       dif1_h3:"🎯 Built to fit", dif1_p:"Every rule and flow is designed around your real process, not squeezed into a template.",
       dif2_h3:"🔒 Your data stays yours", dif2_p:"Your agent runs on your own infrastructure — your information isn't hosted by a third party.",
-      dif3_h3:"🧩 One approach, many uses", dif3_p:"RAG, automation and Data Science combined: the same approach works for customer support, internal team use, or data analysis.",
+      dif3_h3:"🧩 One approach, many uses", dif3_p:"RAG, automation and Data Science combined into one approach.",
       dif4_h3:"🤝 You work directly with me", dif4_p:"No middlemen: you talk to the same person who designs and writes your agent's code.",
       caso_eyebrow:"One example, not the only use", caso_h2:"This is how one of our agents works, in production",
       caso_shot1_caption:"1. The agent chats and qualifies the lead over WhatsApp",
       caso_shot2_caption:"2. You see it instantly in your panel",
       caso_shot3_caption:"3. You get the notification with every detail",
-      caso_p:"This is just one use case: an agent that handles WhatsApp for JB AI Solutions. It understands the kind of project each contact is looking for, follows a discovery checklist for each case, and notifies as soon as there's a qualified lead — with name, contact info, and project details. The same approach (RAG + custom rules) works for an internal agent, a website assistant, or a data analysis.",
+      caso_p:"An agent that handles WhatsApp for JB AI Solutions: it understands each contact's project and notifies us as soon as there's a qualified lead, with name, contact info, and details. The same approach works for an internal agent, a website assistant, or a data analysis.",
       caso_quote:'"We needed something that answered scheduling and pricing questions without making anything up — and that checked our own documents." — real example of a lead qualified by this agent',
       caso_btn:"Request a live demo",
       cta_h2:"Want to see how this could look for your business?", cta_p:"Message us on WhatsApp and in minutes we'll tell you if your process is a fit for automation.", cta_btn:"💬 Message us on WhatsApp",
@@ -597,6 +607,26 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
   if (prevBtn) prevBtn.addEventListener('click', function(){ showSlide(slideIdx - 1); });
   if (nextBtn) nextBtn.addEventListener('click', function(){ showSlide(slideIdx + 1); });
   dots.forEach(function(d, j){ d.addEventListener('click', function(){ showSlide(j); }); });
+
+  // Lightbox for case-study screenshots
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxClose = document.getElementById('lightboxClose');
+  function openLightbox(src, alt){
+    lightboxImg.setAttribute('src', src);
+    lightboxImg.setAttribute('alt', alt || '');
+    lightbox.classList.add('open');
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightboxImg.setAttribute('src', '');
+  }
+  document.querySelectorAll('.caso-shot img').forEach(function(img){
+    img.addEventListener('click', function(){ openLightbox(img.getAttribute('src'), img.getAttribute('alt')); });
+  });
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightbox) lightbox.addEventListener('click', function(e){ if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLightbox(); });
 
   // Scroll-reveal animations
   if ('IntersectionObserver' in window) {
