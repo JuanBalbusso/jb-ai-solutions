@@ -13,14 +13,14 @@
 <meta property="og:title" content="JB AI Solutions — Agentes de IA, RAG, automatización y Data Science">
 <meta property="og:description" content="Agentes de IA con RAG, automatización de procesos y Data Science a medida de tu negocio. No un chatbot genérico de WhatsApp — una capa de IA para vos y para tu equipo.">
 <meta property="og:url" content="https://juanbalbusso.github.io/jb-ai-solutions/">
-<meta property="og:image" content="https://juanbalbusso.github.io/jb-ai-solutions/showcase-ia-agentes.png">
+<meta property="og:image" content="https://juanbalbusso.github.io/jb-ai-solutions/slide-automatizacion.png">
 <meta property="og:locale" content="es_AR">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="JB AI Solutions — Agentes de IA, RAG, automatización y Data Science">
 <meta name="twitter:description" content="Agentes de IA con RAG, automatización de procesos y Data Science a medida de tu negocio.">
-<meta name="twitter:image" content="https://juanbalbusso.github.io/jb-ai-solutions/showcase-ia-agentes.png">
+<meta name="twitter:image" content="https://juanbalbusso.github.io/jb-ai-solutions/slide-automatizacion.png">
 
 <script type="application/ld+json">
 {
@@ -28,7 +28,7 @@
   "@type": "Organization",
   "name": "JB AI Solutions",
   "url": "https://juanbalbusso.github.io/jb-ai-solutions/",
-  "logo": "https://juanbalbusso.github.io/jb-ai-solutions/showcase-ia-agentes.png",
+  "logo": "https://juanbalbusso.github.io/jb-ai-solutions/slide-automatizacion.png",
   "founder": {
     "@type": "Person",
     "name": "Juan Balbusso"
@@ -58,17 +58,17 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#ffffff;--bg-soft:#f8f5f0;--bg-card:#ffffff;--bg-dark:#0e1b2c;
+  --bg:#ffffff;--bg-soft:#ffffff;--bg-card:#ffffff;
   --ink:#171310;--ink-mid:#5b5347;--ink-soft:#8a8278;
   --primary:#123a72;--primary-bright:#1d56a3;--primary-soft:#e7eff9;
   --orange:#e8621a;--orange-bright:#ff7a30;--orange-dim:#8a3a10;--orange-soft:#fdece0;
   --accent:#16a34a;--accent-bright:#1ec25f;--accent-soft:#e3f9ec;
   --border:#ece6dc;
-  --shadow-soft:0 30px 60px -20px rgba(23,19,16,0.18);
+  --shadow-soft:0 30px 60px -20px rgba(23,19,16,0.15);
   --mono:'JetBrains Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;--serif:'Playfair Display',Georgia,serif;
 }
 html[data-theme="dark"]{
-  --bg:#0d0d0d;--bg-soft:#141414;--bg-card:#1a1714;--bg-dark:#000000;
+  --bg:#0d0d0d;--bg-soft:#0d0d0d;--bg-card:#1a1714;
   --ink:#f2ede6;--ink-mid:#c7bfb2;--ink-soft:#8a8278;
   --primary:#8fb8ee;--primary-bright:#aecbf5;--primary-soft:rgba(143,184,238,0.12);
   --orange:#ff7a30;--orange-bright:#ff9052;--orange-dim:#ffb98a;--orange-soft:rgba(232,98,26,0.16);
@@ -80,7 +80,7 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;transition:background 0.25s ease,color 0.25s ease;}
 img{max-width:100%;display:block;}
 a{color:inherit;}
-section{padding:6rem 1.5rem;position:relative;overflow:hidden;}
+section{padding:6rem 1.5rem;position:relative;background:var(--bg);}
 .wrap{max-width:1120px;margin:0 auto;position:relative;z-index:1;}
 .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin-bottom:1.1rem;}
 .eyebrow::before{content:'';width:28px;height:2px;background:var(--orange);display:inline-block;}
@@ -95,12 +95,11 @@ h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:0.75rem;}
 .btn-ghost{background:transparent;color:var(--primary);border:1.5px solid var(--border);}
 .btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
 @keyframes pulseGlow{0%,100%{box-shadow:0 8px 24px rgba(22,163,74,0.28)}50%{box-shadow:0 8px 34px rgba(22,163,74,0.5),0 0 0 7px rgba(22,163,74,0.09)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-@media (prefers-reduced-motion:reduce){.btn-accent,.wa-float,.reveal,[style*="float"]{animation:none!important;transition:none!important;}}
+@media (prefers-reduced-motion:reduce){.btn-accent,.wa-float,.reveal{animation:none!important;transition:none!important;}}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(255,255,255,0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:background 0.25s ease,border-color 0.25s ease;}
-html[data-theme="dark"] nav{background:rgba(13,13,13,0.85);}
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:background 0.25s ease,border-color 0.25s ease;}
+html[data-theme="dark"] nav{background:rgba(13,13,13,0.88);}
 .nav-inner{max-width:1180px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
 .logo{font-family:var(--mono);font-weight:600;font-size:15px;color:var(--ink);letter-spacing:0.02em;display:flex;align-items:center;gap:0.5rem;white-space:nowrap;text-decoration:none;cursor:pointer;transition:opacity 0.15s ease;}
 .logo:hover{opacity:0.75;}
@@ -116,28 +115,17 @@ html[data-theme="dark"] nav{background:rgba(13,13,13,0.85);}
 @media (max-width:900px){.nav-links a:not(.nav-cta):not(.nav-quiensoy){display:none;}}
 @media (max-width:560px){.nav-quiensoy{display:none;}}
 
-/* Decorative backgrounds (reusable) */
-.ai-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
-.ai-bg svg{position:absolute;width:100%;height:100%;opacity:0.16;}
-html[data-theme="dark"] .ai-bg svg{opacity:0.22;}
-.ai-bg .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--orange) 0%,transparent 70%);opacity:0.14;filter:blur(10px);}
-.ai-bg .glow-1{top:-120px;right:-100px;}
-.ai-bg .glow-2{bottom:-160px;left:-120px;background:radial-gradient(circle,var(--primary) 0%,transparent 70%);}
-.dotgrid{position:absolute;inset:0;background-image:radial-gradient(var(--border) 1.4px,transparent 1.4px);background-size:28px 28px;opacity:0.7;z-index:0;pointer-events:none;}
-.bg-photo{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;opacity:0.28;}
-html[data-theme="dark"] .bg-photo{opacity:0.4;}
-
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s);}
 .reveal.is-visible{opacity:1;transform:none;}
 
-/* Centered section header (agentsapp-style) */
+/* Centered section header */
 .section-head{max-width:680px;margin:0 auto 3rem;text-align:center;}
 .section-head .eyebrow{margin-left:auto;margin-right:auto;}
 .section-head .section-sub{margin:0 auto;}
 
 /* HERO */
-#hero{padding-top:9.5rem;padding-bottom:4rem;background:linear-gradient(180deg,var(--bg-soft) 0%,var(--bg) 100%);}
+#hero{padding-top:9.5rem;padding-bottom:4rem;}
 .hero-content{max-width:760px;margin:0 auto;text-align:center;}
 .hero-content .eyebrow{margin-left:auto;margin-right:auto;}
 h1{font-size:clamp(2.5rem,6vw,4.3rem);line-height:1.1;margin-bottom:1.3rem;}
@@ -148,26 +136,30 @@ h1 .hl{color:var(--orange);}
 .hero-proof div{font-family:var(--mono);}
 .hero-proof strong{display:block;font-size:1.4rem;color:var(--orange);}
 .hero-proof span{font-size:12.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.05em;}
-.hero-shot-wrap{max-width:980px;margin:3.5rem auto 0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-soft);border:1px solid var(--border);cursor:pointer;}
-.hero-shot-wrap img{width:100%;display:block;transition:transform .5s ease;}
-.hero-shot-wrap:hover img{transform:scale(1.035);}
+
+/* HERO CAROUSEL */
+.hero-carousel{position:relative;max-width:980px;margin:3.5rem auto 0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-soft);border:1px solid var(--border);background:var(--bg-card);}
+.carousel-track{position:relative;width:100%;aspect-ratio:1408/768;}
+.carousel-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease;}
+.carousel-slide.active{opacity:1;}
+.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.92);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;line-height:1;cursor:pointer;color:var(--ink);box-shadow:0 8px 20px rgba(0,0,0,0.18);transition:transform 0.15s ease,background 0.15s ease;z-index:2;}
+.carousel-arrow:hover{transform:translateY(-50%) scale(1.08);background:#fff;}
+.carousel-arrow.prev{left:14px;}
+.carousel-arrow.next{right:14px;}
+.carousel-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;}
+.carousel-dots .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.6);border:1px solid rgba(0,0,0,0.15);cursor:pointer;transition:background 0.2s ease,transform 0.2s ease;padding:0;}
+.carousel-dots .dot.active{background:var(--orange);transform:scale(1.3);}
 
 /* PROBLEMA */
-#problema{background:var(--bg);}
 .problema-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 @media (max-width:800px){.problema-grid{grid-template-columns:1fr;}}
-.problema-card{background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:transform 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;}
-.problema-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -22px rgba(23,19,16,0.25);border-color:var(--orange);}
+.problema-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:transform 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;}
+.problema-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -22px rgba(23,19,16,0.2);border-color:var(--orange);}
 .problema-card .num{font-family:var(--mono);color:var(--orange);font-size:13px;margin-bottom:0.8rem;}
 .problema-card h3{font-size:1.05rem;margin-bottom:0.5rem;}
 .problema-card p{color:var(--ink-mid);font-size:0.94rem;}
 
 /* SERVICIOS */
-#servicios{background:var(--bg-soft);}
-.servicios-head{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:center;margin-bottom:3.5rem;}
-@media (max-width:900px){.servicios-head{grid-template-columns:1fr;text-align:center;}.servicios-head .eyebrow{margin:0 auto 1.1rem;}.servicios-head .section-sub{margin:0 auto;}}
-.servicios-head .section-sub{margin-bottom:0;}
-.servicios-diagram img{max-width:320px;margin:0 auto;display:block;filter:drop-shadow(0 25px 35px rgba(232,98,26,0.22));animation:float 7s ease-in-out infinite;}
 .servicios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;}
 @media (max-width:900px){.servicios-grid{grid-template-columns:1fr;}}
 .servicio-card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:2.2rem;transition:transform 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;}
@@ -180,7 +172,6 @@ h1 .hl{color:var(--orange);}
 .servicio-card li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-weight:700;}
 
 /* COMO TRABAJAMOS */
-#proceso{background:var(--bg);}
 .proceso-steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center;}
 .proceso-steps::before{content:'';position:absolute;top:32px;left:12%;right:12%;border-top:2px dotted var(--border);z-index:0;}
 @media (max-width:900px){.proceso-steps{grid-template-columns:1fr 1fr;}.proceso-steps::before{display:none;}}
@@ -192,36 +183,32 @@ h1 .hl{color:var(--orange);}
 .step p{color:var(--ink-mid);font-size:0.9rem;}
 
 /* DIFERENCIALES */
-#diferenciales{background:var(--bg-dark);color:#fff;}
-#diferenciales .section-sub{color:#c7bfb2;}
-#diferenciales .eyebrow{color:var(--orange-bright);}
-#diferenciales .eyebrow::before{background:var(--orange-bright);}
-#diferenciales h2{color:#fff;}
-.dif-head{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:center;margin-bottom:3rem;}
-@media (max-width:900px){.dif-head{grid-template-columns:1fr;text-align:center;}.dif-head .eyebrow{margin:0 auto 1.1rem;}.dif-head .section-sub{margin:0 auto;}}
-.dif-head .section-sub{margin-bottom:0;}
-.dif-image img{max-width:300px;margin:0 auto;display:block;border-radius:16px;box-shadow:0 25px 50px -20px rgba(0,0,0,0.55);animation:float 7s ease-in-out infinite;}
 .dif-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
 @media (max-width:760px){.dif-grid{grid-template-columns:1fr;}}
-.dif-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.8rem;backdrop-filter:blur(6px);transition:transform 0.25s ease,background 0.25s ease,border-color 0.25s ease;}
-.dif-card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.08);border-color:var(--orange-bright);}
-.dif-card h3{color:#fff;font-size:1.05rem;margin-bottom:0.5rem;display:flex;gap:0.6rem;align-items:center;font-family:var(--sans);}
-.dif-card p{color:#c7bfb2;font-size:0.92rem;}
+.dif-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:transform 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;}
+.dif-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -22px rgba(23,19,16,0.18);border-color:var(--orange);}
+.dif-card h3{font-size:1.05rem;margin-bottom:0.5rem;display:flex;gap:0.6rem;align-items:center;font-family:var(--sans);}
+.dif-card p{color:var(--ink-mid);font-size:0.92rem;}
 
 /* CASO REAL */
-#caso{background:var(--bg-soft);}
+.caso-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:0 0 3rem;}
+@media (max-width:860px){.caso-gallery{grid-template-columns:1fr;}}
+.caso-shot{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 20px 40px -25px rgba(23,19,16,0.2);transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.caso-shot:hover{transform:translateY(-6px);box-shadow:0 25px 45px -20px rgba(23,19,16,0.28);}
+.caso-shot img{width:100%;display:block;}
+.caso-shot figcaption{padding:0.9rem 1rem;font-size:0.85rem;color:var(--ink-mid);text-align:center;}
 .caso-text{max-width:700px;margin:0 auto;text-align:center;}
 .caso-text p{color:var(--ink-mid);margin-bottom:1rem;}
 .caso-quote{border-left:3px solid var(--orange);padding-left:1.2rem;font-style:italic;color:var(--ink);margin:1.5rem auto;text-align:left;max-width:600px;}
 
 /* CTA FINAL */
-#cta-final{background-image:linear-gradient(135deg,rgba(18,58,114,0.92) 0%,rgba(14,27,44,0.94) 100%);background-color:var(--primary);color:#fff;text-align:center;}
-html[data-theme="dark"] #cta-final{background-image:linear-gradient(135deg,rgba(26,47,77,0.92) 0%,rgba(0,0,0,0.95) 100%);}
-#cta-final h2{color:#fff;}
-#cta-final p{color:#dfe6ee;max-width:520px;margin:0 auto 2rem;}
+#cta-final{text-align:center;}
+.cta-panel{background:var(--bg-soft);border:1px solid var(--border);border-radius:24px;padding:4rem 2rem;max-width:820px;margin:0 auto;}
+html[data-theme="dark"] .cta-panel{background:var(--bg-card);}
+#cta-final p{color:var(--ink-mid);max-width:520px;margin:0 auto 2rem;}
 
 /* FOOTER */
-footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
+footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--bg);}
 .footer-inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;font-size:0.85rem;color:var(--ink-soft);}
 .footer-inner a{text-decoration:none;color:var(--ink-mid);}
 
@@ -249,42 +236,6 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </nav>
 
 <section id="hero">
-  <div class="dotgrid"></div>
-  <div class="ai-bg">
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    <svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="var(--orange)" stroke-width="1.2" fill="none">
-        <line x1="60" y1="90" x2="220" y2="60"></line>
-        <line x1="220" y1="60" x2="360" y2="150"></line>
-        <line x1="360" y1="150" x2="230" y2="230"></line>
-        <line x1="230" y1="230" x2="60" y2="90"></line>
-        <line x1="360" y1="150" x2="520" y2="90"></line>
-        <line x1="520" y1="90" x2="700" y2="170"></line>
-        <line x1="700" y1="170" x2="640" y2="330"></line>
-        <line x1="640" y1="330" x2="470" y2="300"></line>
-        <line x1="470" y1="300" x2="360" y2="150"></line>
-        <line x1="470" y1="300" x2="230" y2="230"></line>
-        <line x1="640" y1="330" x2="790" y2="420"></line>
-        <line x1="230" y1="230" x2="120" y2="380"></line>
-        <line x1="120" y1="380" x2="270" y2="470"></line>
-        <line x1="270" y1="470" x2="470" y2="300"></line>
-      </g>
-      <g fill="var(--orange)">
-        <circle cx="60" cy="90" r="5"></circle>
-        <circle cx="220" cy="60" r="4"></circle>
-        <circle cx="360" cy="150" r="6"></circle>
-        <circle cx="230" cy="230" r="5"></circle>
-        <circle cx="520" cy="90" r="4"></circle>
-        <circle cx="700" cy="170" r="5"></circle>
-        <circle cx="640" cy="330" r="6"></circle>
-        <circle cx="470" cy="300" r="5"></circle>
-        <circle cx="790" cy="420" r="4"></circle>
-        <circle cx="120" cy="380" r="4"></circle>
-        <circle cx="270" cy="470" r="5"></circle>
-      </g>
-    </svg>
-  </div>
   <div class="wrap">
     <div class="hero-content reveal">
       <div class="eyebrow" data-i18n="hero_eyebrow">🤖 Agentes de IA · 🗂️ RAG · ⚙️ Automatización · 📊 Data Science</div>
@@ -304,15 +255,24 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
         <div><strong>0</strong><span data-i18n="proof3">Respuestas inventadas</span></div>
       </div>
     </div>
-    <div class="hero-shot-wrap reveal" style="--d:.15s">
-      <img src="captura-conversacion-bot.png" alt="Conversación real de WhatsApp con un agente de IA de JB AI Solutions">
+    <div class="hero-carousel reveal" style="--d:.15s">
+      <div class="carousel-track">
+        <img class="carousel-slide active" src="slide-automatizacion.png" alt="Automatización de procesos — conectamos tus herramientas">
+        <img class="carousel-slide" src="slide-rag.png" alt="Agentes de IA y RAG — responden con tus propias fuentes">
+        <img class="carousel-slide" src="slide-datascience.png" alt="Data Science y analítica — decisiones basadas en datos reales">
+      </div>
+      <button class="carousel-arrow prev" type="button" aria-label="Anterior">‹</button>
+      <button class="carousel-arrow next" type="button" aria-label="Siguiente">›</button>
+      <div class="carousel-dots">
+        <button class="dot active" type="button" aria-label="Automatización"></button>
+        <button class="dot" type="button" aria-label="RAG"></button>
+        <button class="dot" type="button" aria-label="Data Science"></button>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="problema">
-  <div class="dotgrid"></div>
-  <div class="ai-bg"><div class="glow glow-2"></div></div>
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow" data-i18n="problema_eyebrow">El problema</div>
@@ -340,17 +300,11 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="servicios">
-  <div class="dotgrid"></div>
   <div class="wrap">
-    <div class="servicios-head">
-      <div class="reveal">
-        <div class="eyebrow" data-i18n="servicios_eyebrow">Qué hacemos</div>
-        <h2 data-i18n="servicios_h2">Tres formas de ponerle IA a tu negocio</h2>
-        <p class="section-sub" data-i18n="servicios_sub">No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.</p>
-      </div>
-      <div class="servicios-diagram reveal" style="--d:.1s">
-        <img src="diagrama-ia-naranja.png" alt="Diagrama de un agente de IA conectado a documentos, automatización y Data Science">
-      </div>
+    <div class="section-head reveal">
+      <div class="eyebrow" data-i18n="servicios_eyebrow">Qué hacemos</div>
+      <h2 data-i18n="servicios_h2">Tres formas de ponerle IA a tu negocio</h2>
+      <p class="section-sub" data-i18n="servicios_sub">No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.</p>
     </div>
     <div class="servicios-grid">
       <div class="servicio-card reveal" style="--d:.05s">
@@ -388,8 +342,6 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="proceso">
-  <div class="dotgrid"></div>
-  <div class="ai-bg"><div class="glow glow-1"></div></div>
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow" data-i18n="proceso_eyebrow">Cómo trabajamos</div>
@@ -422,17 +374,11 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="diferenciales">
-  <div class="bg-photo" style="background-image:url('fondo-circuito-ia.png');"></div>
   <div class="wrap">
-    <div class="dif-head">
-      <div class="reveal">
-        <div class="eyebrow" data-i18n="dif_eyebrow">Por qué nosotros</div>
-        <h2 data-i18n="dif_h2">Así encaramos cada proyecto</h2>
-        <p class="section-sub" data-i18n="dif_sub">Estos son los principios que guían todo lo que construimos.</p>
-      </div>
-      <div class="dif-image reveal" style="--d:.1s">
-        <img src="showcase-ia-agentes.png" alt="Ilustración de un agente de IA conectado a documentos, automatización y Data Science">
-      </div>
+    <div class="section-head reveal">
+      <div class="eyebrow" data-i18n="dif_eyebrow">Por qué nosotros</div>
+      <h2 data-i18n="dif_h2">Así encaramos cada proyecto</h2>
+      <p class="section-sub" data-i18n="dif_sub">Estos son los principios que guían todo lo que construimos.</p>
     </div>
     <div class="dif-grid">
       <div class="dif-card reveal" style="--d:.05s">
@@ -456,12 +402,24 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="caso">
-  <div class="dotgrid"></div>
-  <div class="ai-bg"><div class="glow glow-2"></div></div>
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow" data-i18n="caso_eyebrow">Un ejemplo, no el único uso</div>
       <h2 data-i18n="caso_h2">Así funciona uno de nuestros agentes, en producción</h2>
+    </div>
+    <div class="caso-gallery">
+      <figure class="caso-shot reveal" style="--d:.05s">
+        <img src="captura-conversacion-bot.png" alt="Conversación real de WhatsApp con un agente de IA de JB AI Solutions">
+        <figcaption data-i18n="caso_shot1_caption">1. El agente conversa y califica el lead por WhatsApp</figcaption>
+      </figure>
+      <figure class="caso-shot reveal" style="--d:.12s">
+        <img src="captura-panel-admin.png" alt="Panel de administración de JB AI Solutions con la conversación calificada">
+        <figcaption data-i18n="caso_shot2_caption">2. Vos lo ves al instante en tu panel</figcaption>
+      </figure>
+      <figure class="caso-shot reveal" style="--d:.19s">
+        <img src="captura-notificacion-whatsapp.png" alt="Notificación de WhatsApp con el lead calificado">
+        <figcaption data-i18n="caso_shot3_caption">3. Te llega la notificación con todo el detalle</figcaption>
+      </figure>
     </div>
     <div class="caso-text reveal" style="--d:.1s">
       <p data-i18n="caso_p">Este es apenas un caso de uso: un agente que atiende WhatsApp para JB AI Solutions. Entiende el tipo de
@@ -475,12 +433,12 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="cta-final">
-  <div class="bg-photo" style="background-image:url('fondo-circuito-ia.png');opacity:0.22;"></div>
-  <div class="ai-bg"><div class="glow glow-1"></div></div>
   <div class="wrap reveal">
-    <h2 data-i18n="cta_h2">¿Le contamos a tu negocio cómo se vería esto?</h2>
-    <p data-i18n="cta_p">Escribinos por WhatsApp y en minutos te contamos si tu proceso encaja para automatizarlo.</p>
-    <a class="btn btn-accent wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20agent%20for%20my%20business." target="_blank" rel="noopener" data-i18n="cta_btn">💬 Escribinos por WhatsApp</a>
+    <div class="cta-panel">
+      <h2 data-i18n="cta_h2">¿Le contamos a tu negocio cómo se vería esto?</h2>
+      <p data-i18n="cta_p">Escribinos por WhatsApp y en minutos te contamos si tu proceso encaja para automatizarlo.</p>
+      <a class="btn btn-accent wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20agent%20for%20my%20business." target="_blank" rel="noopener" data-i18n="cta_btn">💬 Escribinos por WhatsApp</a>
+    </div>
   </div>
 </section>
 
@@ -534,6 +492,9 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
       dif3_h3:"🧩 Un enfoque, muchos usos", dif3_p:"RAG, automatización y Data Science combinados: el mismo enfoque sirve para atención al cliente, uso interno de tu equipo, o análisis de tus datos.",
       dif4_h3:"🤝 Trabajás directo conmigo", dif4_p:"Sin intermediarios: hablás con la misma persona que diseña y escribe el código de tu agente.",
       caso_eyebrow:"Un ejemplo, no el único uso", caso_h2:"Así funciona uno de nuestros agentes, en producción",
+      caso_shot1_caption:"1. El agente conversa y califica el lead por WhatsApp",
+      caso_shot2_caption:"2. Vos lo ves al instante en tu panel",
+      caso_shot3_caption:"3. Te llega la notificación con todo el detalle",
       caso_p:"Este es apenas un caso de uso: un agente que atiende WhatsApp para JB AI Solutions. Entiende el tipo de proyecto que busca cada contacto, sigue un checklist de descubrimiento según cada caso, y avisa apenas hay un lead calificado — con nombre, contacto y detalle del proyecto. El mismo enfoque (RAG + reglas a medida) sirve para un agente interno, un asistente en tu web, o un análisis de datos.",
       caso_quote:'"Necesitábamos algo que respondiera consultas de agenda y precios sin inventar nada — y que consultara nuestros propios documentos." — ejemplo real de una consulta calificada por este agente',
       caso_btn:"Pedir una demo en vivo",
@@ -574,6 +535,9 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
       dif3_h3:"🧩 One approach, many uses", dif3_p:"RAG, automation and Data Science combined: the same approach works for customer support, internal team use, or data analysis.",
       dif4_h3:"🤝 You work directly with me", dif4_p:"No middlemen: you talk to the same person who designs and writes your agent's code.",
       caso_eyebrow:"One example, not the only use", caso_h2:"This is how one of our agents works, in production",
+      caso_shot1_caption:"1. The agent chats and qualifies the lead over WhatsApp",
+      caso_shot2_caption:"2. You see it instantly in your panel",
+      caso_shot3_caption:"3. You get the notification with every detail",
       caso_p:"This is just one use case: an agent that handles WhatsApp for JB AI Solutions. It understands the kind of project each contact is looking for, follows a discovery checklist for each case, and notifies as soon as there's a qualified lead — with name, contact info, and project details. The same approach (RAG + custom rules) works for an internal agent, a website assistant, or a data analysis.",
       caso_quote:'"We needed something that answered scheduling and pricing questions without making anything up — and that checked our own documents." — real example of a lead qualified by this agent',
       caso_btn:"Request a live demo",
@@ -618,6 +582,21 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
   langBtn.addEventListener('click', function(){
     applyLang(htmlEl.getAttribute('lang') === 'es' ? 'en' : 'es');
   });
+
+  // Hero carousel
+  var slides = document.querySelectorAll('.carousel-slide');
+  var dots = document.querySelectorAll('.carousel-dots .dot');
+  var slideIdx = 0;
+  function showSlide(i){
+    slideIdx = (i + slides.length) % slides.length;
+    slides.forEach(function(s, j){ s.classList.toggle('active', j === slideIdx); });
+    dots.forEach(function(d, j){ d.classList.toggle('active', j === slideIdx); });
+  }
+  var prevBtn = document.querySelector('.carousel-arrow.prev');
+  var nextBtn = document.querySelector('.carousel-arrow.next');
+  if (prevBtn) prevBtn.addEventListener('click', function(){ showSlide(slideIdx - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function(){ showSlide(slideIdx + 1); });
+  dots.forEach(function(d, j){ d.addEventListener('click', function(){ showSlide(j); }); });
 
   // Scroll-reveal animations
   if ('IntersectionObserver' in window) {
