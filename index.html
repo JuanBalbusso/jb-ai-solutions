@@ -13,14 +13,14 @@
 <meta property="og:title" content="JB AI Solutions — Agentes de IA, RAG, automatización y Data Science">
 <meta property="og:description" content="Agentes de IA con RAG, automatización de procesos y Data Science a medida de tu negocio. No un chatbot genérico de WhatsApp — una capa de IA para vos y para tu equipo.">
 <meta property="og:url" content="https://juanbalbusso.github.io/jb-ai-solutions/">
-<meta property="og:image" content="https://juanbalbusso.github.io/jb-ai-solutions/og-image.png">
+<meta property="og:image" content="https://juanbalbusso.github.io/jb-ai-solutions/showcase-ia-agentes.png">
 <meta property="og:locale" content="es_AR">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="JB AI Solutions — Agentes de IA, RAG, automatización y Data Science">
 <meta name="twitter:description" content="Agentes de IA con RAG, automatización de procesos y Data Science a medida de tu negocio.">
-<meta name="twitter:image" content="https://juanbalbusso.github.io/jb-ai-solutions/og-image.png">
+<meta name="twitter:image" content="https://juanbalbusso.github.io/jb-ai-solutions/showcase-ia-agentes.png">
 
 <script type="application/ld+json">
 {
@@ -28,7 +28,7 @@
   "@type": "Organization",
   "name": "JB AI Solutions",
   "url": "https://juanbalbusso.github.io/jb-ai-solutions/",
-  "logo": "https://juanbalbusso.github.io/jb-ai-solutions/og-image.png",
+  "logo": "https://juanbalbusso.github.io/jb-ai-solutions/showcase-ia-agentes.png",
   "founder": {
     "@type": "Person",
     "name": "Juan Balbusso"
@@ -80,36 +80,43 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;transition:background 0.25s ease,color 0.25s ease;}
 img{max-width:100%;display:block;}
 a{color:inherit;}
-section{padding:6rem 1.5rem;position:relative;}
+section{padding:6rem 1.5rem;position:relative;overflow:hidden;}
 .wrap{max-width:1120px;margin:0 auto;position:relative;z-index:1;}
-.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:0.6rem;margin-bottom:1.1rem;}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin-bottom:1.1rem;}
 .eyebrow::before{content:'';width:28px;height:2px;background:var(--orange);display:inline-block;}
 h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-0.01em;color:var(--ink);}
 h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:0.75rem;}
 .section-sub{color:var(--ink-mid);max-width:620px;font-size:1.02rem;margin-bottom:3rem;}
+.hl2{color:var(--accent);font-weight:700;}
 .btn{display:inline-flex;align-items:center;gap:0.6rem;font-weight:600;font-size:0.95rem;padding:0.9rem 1.6rem;border-radius:10px;text-decoration:none;transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease;border:none;cursor:pointer;font-family:var(--sans);}
-.btn:hover{transform:translateY(-2px);}
-.btn-accent{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(22,163,74,0.28);}
+.btn:hover{transform:translateY(-3px);}
+.btn-accent{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(22,163,74,0.28);animation:pulseGlow 2.8s ease-in-out infinite;}
 .btn-accent:hover{background:var(--accent-bright);}
 .btn-ghost{background:transparent;color:var(--primary);border:1.5px solid var(--border);}
-.btn-ghost:hover{border-color:var(--primary);}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
+@keyframes pulseGlow{0%,100%{box-shadow:0 8px 24px rgba(22,163,74,0.28)}50%{box-shadow:0 8px 34px rgba(22,163,74,0.5),0 0 0 7px rgba(22,163,74,0.09)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@media (prefers-reduced-motion:reduce){.btn-accent,.wa-float,.reveal,[style*="float"]{animation:none!important;transition:none!important;}}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(255,255,255,0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:background 0.25s ease,border-color 0.25s ease;}
 html[data-theme="dark"] nav{background:rgba(13,13,13,0.85);}
 .nav-inner{max-width:1180px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
-.logo{font-family:var(--mono);font-weight:600;font-size:15px;color:var(--ink);letter-spacing:0.02em;display:flex;align-items:center;gap:0.5rem;white-space:nowrap;}
+.logo{font-family:var(--mono);font-weight:600;font-size:15px;color:var(--ink);letter-spacing:0.02em;display:flex;align-items:center;gap:0.5rem;white-space:nowrap;text-decoration:none;cursor:pointer;transition:opacity 0.15s ease;}
+.logo:hover{opacity:0.75;}
 .logo span{color:var(--orange);}
 .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
 .nav-links a{font-size:14px;font-weight:500;color:var(--ink-mid);text-decoration:none;white-space:nowrap;}
 .nav-links a:hover{color:var(--ink);}
+.nav-links a.nav-cta{color:#fff;}
+.nav-links a.nav-cta:hover{color:#fff;}
 .nav-cta{font-size:13.5px;padding:0.6rem 1.1rem;}
-.icon-btn{background:transparent;border:1.5px solid var(--border);color:var(--ink-mid);width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;font-family:var(--mono);transition:border-color 0.15s ease,color 0.15s ease;}
-.icon-btn:hover{border-color:var(--orange);color:var(--orange);}
+.icon-btn{background:transparent;border:1.5px solid var(--border);color:var(--ink-mid);width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;font-family:var(--mono);transition:border-color 0.15s ease,color 0.15s ease,transform 0.15s ease;}
+.icon-btn:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px);}
 @media (max-width:900px){.nav-links a:not(.nav-cta):not(.nav-quiensoy){display:none;}}
 @media (max-width:560px){.nav-quiensoy{display:none;}}
 
-/* AI decorative background */
+/* Decorative backgrounds (reusable) */
 .ai-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
 .ai-bg svg{position:absolute;width:100%;height:100%;opacity:0.16;}
 html[data-theme="dark"] .ai-bg svg{opacity:0.22;}
@@ -117,39 +124,54 @@ html[data-theme="dark"] .ai-bg svg{opacity:0.22;}
 .ai-bg .glow-1{top:-120px;right:-100px;}
 .ai-bg .glow-2{bottom:-160px;left:-120px;background:radial-gradient(circle,var(--primary) 0%,transparent 70%);}
 .dotgrid{position:absolute;inset:0;background-image:radial-gradient(var(--border) 1.4px,transparent 1.4px);background-size:28px 28px;opacity:0.7;z-index:0;pointer-events:none;}
+.bg-photo{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;opacity:0.28;}
+html[data-theme="dark"] .bg-photo{opacity:0.4;}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s);}
+.reveal.is-visible{opacity:1;transform:none;}
+
+/* Centered section header (agentsapp-style) */
+.section-head{max-width:680px;margin:0 auto 3rem;text-align:center;}
+.section-head .eyebrow{margin-left:auto;margin-right:auto;}
+.section-head .section-sub{margin:0 auto;}
 
 /* HERO */
-#hero{padding-top:9.5rem;padding-bottom:4rem;background:linear-gradient(180deg,var(--bg-soft) 0%,var(--bg) 100%);overflow:hidden;}
-.hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:3.5rem;align-items:center;}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr;}}
-h1{font-size:clamp(2.3rem,5vw,3.4rem);line-height:1.14;margin-bottom:1.3rem;}
+#hero{padding-top:9.5rem;padding-bottom:4rem;background:linear-gradient(180deg,var(--bg-soft) 0%,var(--bg) 100%);}
+.hero-content{max-width:760px;margin:0 auto;text-align:center;}
+.hero-content .eyebrow{margin-left:auto;margin-right:auto;}
+h1{font-size:clamp(2.5rem,6vw,4.3rem);line-height:1.1;margin-bottom:1.3rem;}
 h1 .hl{color:var(--orange);}
-.hero-desc{color:var(--ink-mid);font-size:1.08rem;max-width:520px;margin-bottom:2rem;}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
-.hero-proof{display:flex;gap:2rem;flex-wrap:wrap;}
+.hero-desc{color:var(--ink-mid);font-size:1.08rem;max-width:600px;margin:0 auto 2rem;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;justify-content:center;}
+.hero-proof{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;}
 .hero-proof div{font-family:var(--mono);}
 .hero-proof strong{display:block;font-size:1.4rem;color:var(--orange);}
 .hero-proof span{font-size:12.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.05em;}
-.hero-visual{background:var(--bg-dark);border-radius:20px;padding:1.1rem;box-shadow:var(--shadow-soft);}
-.hero-visual .browser-bar{display:flex;gap:6px;padding:0 0.4rem 0.8rem;}
-.hero-visual .browser-bar span{width:10px;height:10px;border-radius:50%;background:#33475f;}
-.hero-visual img{border-radius:10px;}
-.hero-visual figcaption{color:#9fb0c4;font-family:var(--mono);font-size:11.5px;text-align:center;padding-top:0.7rem;}
+.hero-shot-wrap{max-width:980px;margin:3.5rem auto 0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-soft);border:1px solid var(--border);cursor:pointer;}
+.hero-shot-wrap img{width:100%;display:block;transition:transform .5s ease;}
+.hero-shot-wrap:hover img{transform:scale(1.035);}
 
 /* PROBLEMA */
 #problema{background:var(--bg);}
 .problema-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 @media (max-width:800px){.problema-grid{grid-template-columns:1fr;}}
-.problema-card{background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;padding:1.8rem;}
+.problema-card{background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:transform 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;}
+.problema-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -22px rgba(23,19,16,0.25);border-color:var(--orange);}
 .problema-card .num{font-family:var(--mono);color:var(--orange);font-size:13px;margin-bottom:0.8rem;}
 .problema-card h3{font-size:1.05rem;margin-bottom:0.5rem;}
 .problema-card p{color:var(--ink-mid);font-size:0.94rem;}
 
 /* SERVICIOS */
 #servicios{background:var(--bg-soft);}
+.servicios-head{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:center;margin-bottom:3.5rem;}
+@media (max-width:900px){.servicios-head{grid-template-columns:1fr;text-align:center;}.servicios-head .eyebrow{margin:0 auto 1.1rem;}.servicios-head .section-sub{margin:0 auto;}}
+.servicios-head .section-sub{margin-bottom:0;}
+.servicios-diagram img{max-width:320px;margin:0 auto;display:block;filter:drop-shadow(0 25px 35px rgba(232,98,26,0.22));animation:float 7s ease-in-out infinite;}
 .servicios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;}
 @media (max-width:900px){.servicios-grid{grid-template-columns:1fr;}}
-.servicio-card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:2.2rem;}
+.servicio-card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:2.2rem;transition:transform 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;}
+.servicio-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -22px rgba(23,19,16,0.2);border-color:var(--orange);}
 .servicio-icon{width:48px;height:48px;border-radius:12px;background:var(--orange-soft);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.3rem;}
 .servicio-card h3{font-size:1.15rem;margin-bottom:0.6rem;}
 .servicio-card p{color:var(--ink-mid);font-size:0.95rem;margin-bottom:1rem;}
@@ -159,11 +181,13 @@ h1 .hl{color:var(--orange);}
 
 /* COMO TRABAJAMOS */
 #proceso{background:var(--bg);}
-.proceso-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:step;}
-@media (max-width:900px){.proceso-steps{grid-template-columns:1fr 1fr;}}
+.proceso-steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center;}
+.proceso-steps::before{content:'';position:absolute;top:32px;left:12%;right:12%;border-top:2px dotted var(--border);z-index:0;}
+@media (max-width:900px){.proceso-steps{grid-template-columns:1fr 1fr;}.proceso-steps::before{display:none;}}
 @media (max-width:560px){.proceso-steps{grid-template-columns:1fr;}}
-.step{position:relative;padding-top:0.5rem;}
-.step .step-num{counter-increment:step;font-family:var(--mono);font-size:2.2rem;font-weight:700;color:var(--orange-soft);-webkit-text-stroke:1.5px var(--orange);margin-bottom:0.8rem;}
+.step{position:relative;z-index:1;transition:transform 0.25s ease;}
+.step:hover{transform:translateY(-4px);}
+.step-icon{width:64px;height:64px;border-radius:50%;background:var(--bg-card);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 1rem;box-shadow:0 10px 24px -10px rgba(23,19,16,0.15);position:relative;z-index:1;}
 .step h3{font-size:1rem;margin-bottom:0.5rem;font-family:var(--sans);}
 .step p{color:var(--ink-mid);font-size:0.9rem;}
 
@@ -173,24 +197,26 @@ h1 .hl{color:var(--orange);}
 #diferenciales .eyebrow{color:var(--orange-bright);}
 #diferenciales .eyebrow::before{background:var(--orange-bright);}
 #diferenciales h2{color:#fff;}
+.dif-head{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:center;margin-bottom:3rem;}
+@media (max-width:900px){.dif-head{grid-template-columns:1fr;text-align:center;}.dif-head .eyebrow{margin:0 auto 1.1rem;}.dif-head .section-sub{margin:0 auto;}}
+.dif-head .section-sub{margin-bottom:0;}
+.dif-image img{max-width:300px;margin:0 auto;display:block;border-radius:16px;box-shadow:0 25px 50px -20px rgba(0,0,0,0.55);animation:float 7s ease-in-out infinite;}
 .dif-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
 @media (max-width:760px){.dif-grid{grid-template-columns:1fr;}}
-.dif-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.8rem;}
+.dif-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.8rem;backdrop-filter:blur(6px);transition:transform 0.25s ease,background 0.25s ease,border-color 0.25s ease;}
+.dif-card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.08);border-color:var(--orange-bright);}
 .dif-card h3{color:#fff;font-size:1.05rem;margin-bottom:0.5rem;display:flex;gap:0.6rem;align-items:center;font-family:var(--sans);}
 .dif-card p{color:#c7bfb2;font-size:0.92rem;}
 
 /* CASO REAL */
 #caso{background:var(--bg-soft);}
-.caso-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
-@media (max-width:860px){.caso-grid{grid-template-columns:1fr;}}
-.caso-shot{background:var(--bg-dark);border-radius:16px;padding:0.9rem;box-shadow:var(--shadow-soft);}
-.caso-shot img{border-radius:8px;}
+.caso-text{max-width:700px;margin:0 auto;text-align:center;}
 .caso-text p{color:var(--ink-mid);margin-bottom:1rem;}
-.caso-quote{border-left:3px solid var(--orange);padding-left:1.2rem;font-style:italic;color:var(--ink);margin:1.5rem 0;}
+.caso-quote{border-left:3px solid var(--orange);padding-left:1.2rem;font-style:italic;color:var(--ink);margin:1.5rem auto;text-align:left;max-width:600px;}
 
 /* CTA FINAL */
-#cta-final{background:linear-gradient(135deg,var(--primary) 0%,var(--bg-dark) 100%);color:#fff;text-align:center;overflow:hidden;}
-html[data-theme="dark"] #cta-final{background:linear-gradient(135deg,#1a2f4d 0%,#000 100%);}
+#cta-final{background-image:linear-gradient(135deg,rgba(18,58,114,0.92) 0%,rgba(14,27,44,0.94) 100%);background-color:var(--primary);color:#fff;text-align:center;}
+html[data-theme="dark"] #cta-final{background-image:linear-gradient(135deg,rgba(26,47,77,0.92) 0%,rgba(0,0,0,0.95) 100%);}
 #cta-final h2{color:#fff;}
 #cta-final p{color:#dfe6ee;max-width:520px;margin:0 auto 2rem;}
 
@@ -200,14 +226,15 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 .footer-inner a{text-decoration:none;color:var(--ink-mid);}
 
 /* Whatsapp floating button */
-.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;background:var(--accent);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 10px 30px rgba(22,163,74,0.4);text-decoration:none;}
+.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;background:var(--accent);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 10px 30px rgba(22,163,74,0.4);text-decoration:none;animation:pulseGlow 2.8s ease-in-out infinite;transition:transform 0.15s ease;}
+.wa-float:hover{transform:scale(1.08);}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">JB<span>·</span>AI Solutions</div>
+    <a href="#hero" class="logo">JB<span>·</span>AI Solutions</a>
     <ul class="nav-links">
       <li><a href="#servicios" data-i18n="nav_servicios">Servicios</a></li>
       <li><a href="#proceso" data-i18n="nav_proceso">Cómo trabajamos</a></li>
@@ -258,15 +285,14 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
       </g>
     </svg>
   </div>
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow" data-i18n="hero_eyebrow">Agentes de IA · RAG · Automatización · Data Science</div>
+  <div class="wrap">
+    <div class="hero-content reveal">
+      <div class="eyebrow" data-i18n="hero_eyebrow">🤖 Agentes de IA · 🗂️ RAG · ⚙️ Automatización · 📊 Data Science</div>
       <h1 data-i18n="hero_h1">IA que <span class="hl">conoce tu información</span> y trabaja con tus procesos</h1>
       <p class="hero-desc" data-i18n="hero_desc">
-        Diseñamos agentes de IA con RAG que responden solo con el contexto real de tus documentos,
-        automatizamos procesos conectando las herramientas que ya usás, y analizamos tus datos para
-        que decidas con información, no a ciegas. Puede ser un asistente para tus clientes, uno para
-        que lo use tu propio equipo puertas adentro (contratos, manuales, políticas internas), o ambos.
+        Diseñamos <span class="hl2">agentes de IA</span> con <span class="hl2">RAG</span> que responden solo con el contexto real de tus documentos,
+        <span class="hl2">automatizamos procesos</span> conectando las herramientas que ya usás, y <span class="hl2">analizamos tus datos</span> para
+        que decidas con información, no a ciegas.
       </p>
       <div class="hero-actions">
         <a class="btn btn-accent wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20proyecto%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20proyecto%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20project%20for%20my%20business." target="_blank" rel="noopener" data-i18n="hero_btn_wa">💬 Charlemos por WhatsApp</a>
@@ -278,32 +304,33 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
         <div><strong>0</strong><span data-i18n="proof3">Respuestas inventadas</span></div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="browser-bar"><span></span><span></span><span></span></div>
-      <!-- IMAGEN 1: captura real de una conversación con tu agente (por ej. el de WhatsApp, como demo) -->
-      <img src="captura-whatsapp-demo.png" alt="Conversación real con un agente de IA de JB AI Solutions">
-      <figcaption data-i18n="hero_caption">demo en vivo — uno de nuestros agentes en producción</figcaption>
+    <div class="hero-shot-wrap reveal" style="--d:.15s">
+      <img src="captura-conversacion-bot.png" alt="Conversación real de WhatsApp con un agente de IA de JB AI Solutions">
     </div>
   </div>
 </section>
 
 <section id="problema">
+  <div class="dotgrid"></div>
+  <div class="ai-bg"><div class="glow glow-2"></div></div>
   <div class="wrap">
-    <div class="eyebrow" data-i18n="problema_eyebrow">El problema</div>
-    <h2 data-i18n="problema_h2">La información y los procesos no escalan solos</h2>
-    <p class="section-sub" data-i18n="problema_sub">No es solo "no llego a contestar el WhatsApp" — es información dispersa, procesos manuales que se repiten, y decisiones que se toman sin mirar los datos que ya tenés.</p>
+    <div class="section-head reveal">
+      <div class="eyebrow" data-i18n="problema_eyebrow">El problema</div>
+      <h2 data-i18n="problema_h2">La información y los procesos no escalan solos</h2>
+      <p class="section-sub" data-i18n="problema_sub">No es solo "no llego a contestar el WhatsApp" — es información dispersa, procesos manuales que se repiten, y decisiones que se toman sin mirar los datos que ya tenés.</p>
+    </div>
     <div class="problema-grid">
-      <div class="problema-card">
+      <div class="problema-card reveal" style="--d:.05s">
         <div class="num">01</div>
         <h3 data-i18n="problema1_h3">Información dispersa</h3>
         <p data-i18n="problema1_p">Contratos, manuales, políticas internas, planillas — repartidos en mil lugares, y nadie los encuentra rápido cuando hace falta.</p>
       </div>
-      <div class="problema-card">
+      <div class="problema-card reveal" style="--d:.15s">
         <div class="num">02</div>
         <h3 data-i18n="problema2_h3">Procesos manuales que se repiten</h3>
         <p data-i18n="problema2_p">Atención al cliente, carga de datos, seguimiento — tareas que se hacen a mano todos los días y no escalan con tu equipo.</p>
       </div>
-      <div class="problema-card">
+      <div class="problema-card reveal" style="--d:.25s">
         <div class="num">03</div>
         <h3 data-i18n="problema3_h3">Decisiones sin mirar los datos</h3>
         <p data-i18n="problema3_p">Tenés información valiosa acumulada, pero nadie tiene el tiempo (ni las herramientas) para analizarla y sacarle provecho.</p>
@@ -313,12 +340,20 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="servicios">
+  <div class="dotgrid"></div>
   <div class="wrap">
-    <div class="eyebrow" data-i18n="servicios_eyebrow">Qué hacemos</div>
-    <h2 data-i18n="servicios_h2">Tres formas de ponerle IA a tu negocio</h2>
-    <p class="section-sub" data-i18n="servicios_sub">No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.</p>
+    <div class="servicios-head">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="servicios_eyebrow">Qué hacemos</div>
+        <h2 data-i18n="servicios_h2">Tres formas de ponerle IA a tu negocio</h2>
+        <p class="section-sub" data-i18n="servicios_sub">No vendemos una plataforma genérica — diseñamos la solución específica que tu negocio necesita, sea para tus clientes, para tu equipo, o para ambos.</p>
+      </div>
+      <div class="servicios-diagram reveal" style="--d:.1s">
+        <img src="diagrama-ia-naranja.png" alt="Diagrama de un agente de IA conectado a documentos, automatización y Data Science">
+      </div>
+    </div>
     <div class="servicios-grid">
-      <div class="servicio-card">
+      <div class="servicio-card reveal" style="--d:.05s">
         <div class="servicio-icon">🧠</div>
         <h3 data-i18n="serv1_h3">Agentes de IA &amp; RAG</h3>
         <p data-i18n="serv1_p">Agentes que responden con el contexto real de tus propias fuentes — contratos, manuales, políticas, catálogos. Para atención al cliente, o para que tu equipo consulte información interna sin perder tiempo buscando.</p>
@@ -328,7 +363,7 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
           <li data-i18n="serv1_li3">Integrable a WhatsApp, web o herramientas internas</li>
         </ul>
       </div>
-      <div class="servicio-card">
+      <div class="servicio-card reveal" style="--d:.15s">
         <div class="servicio-icon">⚙️</div>
         <h3 data-i18n="serv2_h3">Automatización de procesos</h3>
         <p data-i18n="serv2_p">Conectamos tus sistemas con las herramientas que ya usás — calendario, planillas, CRM, sistema de turnos — para que la información fluya sola entre ellos.</p>
@@ -338,7 +373,7 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
           <li data-i18n="serv2_li3">Menos carga administrativa manual</li>
         </ul>
       </div>
-      <div class="servicio-card">
+      <div class="servicio-card reveal" style="--d:.25s">
         <div class="servicio-icon">📊</div>
         <h3 data-i18n="serv3_h3">Data Science &amp; analítica</h3>
         <p data-i18n="serv3_p">Análisis de tus datos para entender qué está pasando en tu negocio hoy, y modelos para anticipar qué va a pasar mañana.</p>
@@ -353,29 +388,33 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="proceso">
+  <div class="dotgrid"></div>
+  <div class="ai-bg"><div class="glow glow-1"></div></div>
   <div class="wrap">
-    <div class="eyebrow" data-i18n="proceso_eyebrow">Cómo trabajamos</div>
-    <h2 data-i18n="proceso_h2">Un proceso pensado junto a vos, paso a paso</h2>
-    <p class="section-sub" data-i18n="proceso_sub">Nos involucramos en cada etapa para que el resultado se ajuste exactamente a como trabaja tu negocio.</p>
+    <div class="section-head reveal">
+      <div class="eyebrow" data-i18n="proceso_eyebrow">Cómo trabajamos</div>
+      <h2 data-i18n="proceso_h2">Un proceso pensado junto a vos, paso a paso</h2>
+      <p class="section-sub" data-i18n="proceso_sub">Nos involucramos en cada etapa para que el resultado se ajuste exactamente a como trabaja tu negocio.</p>
+    </div>
     <div class="proceso-steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3 data-i18n="step1_h3">Hablamos de tu proceso real</h3>
+      <div class="step reveal" style="--d:.05s">
+        <div class="step-icon">🗣️</div>
+        <h3 data-i18n="step1_h3">1. Hablamos de tu proceso real</h3>
         <p data-i18n="step1_p">Qué información manejás, qué se repite todos los días, y quién lo va a usar — tus clientes, tu equipo, o vos.</p>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3 data-i18n="step2_h3">Diseñamos el agente con vos</h3>
+      <div class="step reveal" style="--d:.12s">
+        <div class="step-icon">✏️</div>
+        <h3 data-i18n="step2_h3">2. Diseñamos el agente con vos</h3>
         <p data-i18n="step2_p">Un flujo pensado específicamente para tu negocio y tu forma de trabajar.</p>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3 data-i18n="step3_h3">Lo probamos juntos</h3>
+      <div class="step reveal" style="--d:.19s">
+        <div class="step-icon">🧪</div>
+        <h3 data-i18n="step3_h3">3. Lo probamos juntos</h3>
         <p data-i18n="step3_p">Antes de que hable con un solo cliente real, lo testeamos a fondo.</p>
       </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3 data-i18n="step4_h3">Lo acompañamos</h3>
+      <div class="step reveal" style="--d:.26s">
+        <div class="step-icon">🤝</div>
+        <h3 data-i18n="step4_h3">4. Lo acompañamos</h3>
         <p data-i18n="step4_p">Ajustamos el agente con el tiempo, a medida que tu negocio cambia.</p>
       </div>
     </div>
@@ -383,24 +422,32 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="diferenciales">
+  <div class="bg-photo" style="background-image:url('fondo-circuito-ia.png');"></div>
   <div class="wrap">
-    <div class="eyebrow" data-i18n="dif_eyebrow">Por qué nosotros</div>
-    <h2 data-i18n="dif_h2">Así encaramos cada proyecto</h2>
-    <p class="section-sub" data-i18n="dif_sub">Estos son los principios que guían todo lo que construimos.</p>
+    <div class="dif-head">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="dif_eyebrow">Por qué nosotros</div>
+        <h2 data-i18n="dif_h2">Así encaramos cada proyecto</h2>
+        <p class="section-sub" data-i18n="dif_sub">Estos son los principios que guían todo lo que construimos.</p>
+      </div>
+      <div class="dif-image reveal" style="--d:.1s">
+        <img src="showcase-ia-agentes.png" alt="Ilustración de un agente de IA conectado a documentos, automatización y Data Science">
+      </div>
+    </div>
     <div class="dif-grid">
-      <div class="dif-card">
+      <div class="dif-card reveal" style="--d:.05s">
         <h3 data-i18n="dif1_h3">🎯 Hecho a medida</h3>
         <p data-i18n="dif1_p">Cada regla y cada flujo están pensados para tu proceso real, no para encajarte en una plantilla.</p>
       </div>
-      <div class="dif-card">
+      <div class="dif-card reveal" style="--d:.12s">
         <h3 data-i18n="dif2_h3">🔒 Tus datos son tuyos</h3>
         <p data-i18n="dif2_p">Tu agente corre en tu propia infraestructura — tu información no queda alojada en un tercero.</p>
       </div>
-      <div class="dif-card">
+      <div class="dif-card reveal" style="--d:.19s">
         <h3 data-i18n="dif3_h3">🧩 Un enfoque, muchos usos</h3>
         <p data-i18n="dif3_p">RAG, automatización y Data Science combinados: el mismo enfoque sirve para atención al cliente, uso interno de tu equipo, o análisis de tus datos.</p>
       </div>
-      <div class="dif-card">
+      <div class="dif-card reveal" style="--d:.26s">
         <h3 data-i18n="dif4_h3">🤝 Trabajás directo conmigo</h3>
         <p data-i18n="dif4_p">Sin intermediarios: hablás con la misma persona que diseña y escribe el código de tu agente.</p>
       </div>
@@ -409,14 +456,14 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="caso">
-  <div class="wrap caso-grid">
-    <div class="caso-shot">
-      <!-- IMAGEN 2: captura real del panel /admin (ver notas de imágenes) -->
-      <img src="captura-admin-panel.png" alt="Panel de administración de conversaciones de JB AI Solutions">
-    </div>
-    <div class="caso-text">
+  <div class="dotgrid"></div>
+  <div class="ai-bg"><div class="glow glow-2"></div></div>
+  <div class="wrap">
+    <div class="section-head reveal">
       <div class="eyebrow" data-i18n="caso_eyebrow">Un ejemplo, no el único uso</div>
       <h2 data-i18n="caso_h2">Así funciona uno de nuestros agentes, en producción</h2>
+    </div>
+    <div class="caso-text reveal" style="--d:.1s">
       <p data-i18n="caso_p">Este es apenas un caso de uso: un agente que atiende WhatsApp para JB AI Solutions. Entiende el tipo de
         proyecto que busca cada contacto, sigue un checklist de descubrimiento según cada caso, y avisa apenas
         hay un lead calificado — con nombre, contacto y detalle del proyecto. El mismo enfoque (RAG + reglas a
@@ -428,10 +475,9 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
 </section>
 
 <section id="cta-final">
-  <div class="ai-bg">
-    <div class="glow glow-1"></div>
-  </div>
-  <div class="wrap">
+  <div class="bg-photo" style="background-image:url('fondo-circuito-ia.png');opacity:0.22;"></div>
+  <div class="ai-bg"><div class="glow glow-1"></div></div>
+  <div class="wrap reveal">
     <h2 data-i18n="cta_h2">¿Le contamos a tu negocio cómo se vería esto?</h2>
     <p data-i18n="cta_p">Escribinos por WhatsApp y en minutos te contamos si tu proceso encaja para automatizarlo.</p>
     <a class="btn btn-accent wa-link" href="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-es="https://wa.me/13512150324?text=Hola!%20Quiero%20consultar%20por%20un%20agente%20de%20IA%20para%20mi%20negocio." data-wa-en="https://wa.me/13512150324?text=Hi!%20I%27d%20like%20to%20ask%20about%20an%20AI%20agent%20for%20my%20business." target="_blank" rel="noopener" data-i18n="cta_btn">💬 Escribinos por WhatsApp</a>
@@ -457,12 +503,11 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
     es: {
       nav_servicios:"Servicios", nav_proceso:"Cómo trabajamos", nav_caso:"Caso real", nav_contacto:"Contacto",
       nav_quiensoy:"Quién soy", nav_escribinos:"Escribinos",
-      hero_eyebrow:"Agentes de IA · RAG · Automatización · Data Science",
+      hero_eyebrow:"🤖 Agentes de IA · 🗂️ RAG · ⚙️ Automatización · 📊 Data Science",
       hero_h1:'IA que <span class="hl">conoce tu información</span> y trabaja con tus procesos',
-      hero_desc:"Diseñamos agentes de IA con RAG que responden solo con el contexto real de tus documentos, automatizamos procesos conectando las herramientas que ya usás, y analizamos tus datos para que decidas con información, no a ciegas. Puede ser un asistente para tus clientes, uno para que lo use tu propio equipo puertas adentro (contratos, manuales, políticas internas), o ambos.",
+      hero_desc:'Diseñamos <span class="hl2">agentes de IA</span> con <span class="hl2">RAG</span> que responden solo con el contexto real de tus documentos, <span class="hl2">automatizamos procesos</span> conectando las herramientas que ya usás, y <span class="hl2">analizamos tus datos</span> para que decidas con información, no a ciegas.',
       hero_btn_wa:"💬 Charlemos por WhatsApp", hero_btn_proceso:"Ver cómo trabajamos",
       proof1:"Solo responde lo que sabe", proof2:"A medida de tu proceso", proof3:"Respuestas inventadas",
-      hero_caption:"demo en vivo — uno de nuestros agentes en producción",
       problema_eyebrow:"El problema", problema_h2:"La información y los procesos no escalan solos",
       problema_sub:'No es solo "no llego a contestar el WhatsApp" — es información dispersa, procesos manuales que se repiten, y decisiones que se toman sin mirar los datos que ya tenés.',
       problema1_h3:"Información dispersa", problema1_p:"Contratos, manuales, políticas internas, planillas — repartidos en mil lugares, y nadie los encuentra rápido cuando hace falta.",
@@ -478,10 +523,10 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
       serv3_li1:"Modelos predictivos", serv3_li2:"Dashboards y reportes", serv3_li3:"Decisiones basadas en datos reales",
       proceso_eyebrow:"Cómo trabajamos", proceso_h2:"Un proceso pensado junto a vos, paso a paso",
       proceso_sub:"Nos involucramos en cada etapa para que el resultado se ajuste exactamente a como trabaja tu negocio.",
-      step1_h3:"Hablamos de tu proceso real", step1_p:"Qué información manejás, qué se repite todos los días, y quién lo va a usar — tus clientes, tu equipo, o vos.",
-      step2_h3:"Diseñamos el agente con vos", step2_p:"Un flujo pensado específicamente para tu negocio y tu forma de trabajar.",
-      step3_h3:"Lo probamos juntos", step3_p:"Antes de que hable con un solo cliente real, lo testeamos a fondo.",
-      step4_h3:"Lo acompañamos", step4_p:"Ajustamos el agente con el tiempo, a medida que tu negocio cambia.",
+      step1_h3:"1. Hablamos de tu proceso real", step1_p:"Qué información manejás, qué se repite todos los días, y quién lo va a usar — tus clientes, tu equipo, o vos.",
+      step2_h3:"2. Diseñamos el agente con vos", step2_p:"Un flujo pensado específicamente para tu negocio y tu forma de trabajar.",
+      step3_h3:"3. Lo probamos juntos", step3_p:"Antes de que hable con un solo cliente real, lo testeamos a fondo.",
+      step4_h3:"4. Lo acompañamos", step4_p:"Ajustamos el agente con el tiempo, a medida que tu negocio cambia.",
       dif_eyebrow:"Por qué nosotros", dif_h2:"Así encaramos cada proyecto",
       dif_sub:"Estos son los principios que guían todo lo que construimos.",
       dif1_h3:"🎯 Hecho a medida", dif1_p:"Cada regla y cada flujo están pensados para tu proceso real, no para encajarte en una plantilla.",
@@ -498,12 +543,11 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
     en: {
       nav_servicios:"Services", nav_proceso:"How we work", nav_caso:"Case study", nav_contacto:"Contact",
       nav_quiensoy:"About me", nav_escribinos:"Message us",
-      hero_eyebrow:"AI Agents · RAG · Automation · Data Science",
+      hero_eyebrow:"🤖 AI Agents · 🗂️ RAG · ⚙️ Automation · 📊 Data Science",
       hero_h1:'AI that <span class="hl">knows your information</span> and works with your processes',
-      hero_desc:"We design AI agents with RAG that answer using only the real context of your documents, automate processes by connecting the tools you already use, and analyze your data so you decide with real information, not guesswork. It can be an assistant for your customers, one for your own team to use internally (contracts, manuals, internal policies), or both.",
+      hero_desc:'We design <span class="hl2">AI agents</span> with <span class="hl2">RAG</span> that answer using only the real context of your documents, <span class="hl2">automate processes</span> by connecting the tools you already use, and <span class="hl2">analyze your data</span> so you decide with real information, not guesswork.',
       hero_btn_wa:"💬 Let's talk on WhatsApp", hero_btn_proceso:"See how we work",
       proof1:"Only answers what it knows", proof2:"Tailored to your process", proof3:"Made-up answers",
-      hero_caption:"live demo — one of our agents in production",
       problema_eyebrow:"The problem", problema_h2:"Information and processes don't scale on their own",
       problema_sub:"It's not just ‘I can't keep up with WhatsApp’ — it's scattered information, manual processes that repeat, and decisions made without looking at the data you already have.",
       problema1_h3:"Scattered information", problema1_p:"Contracts, manuals, internal policies, spreadsheets — spread across a dozen places, and no one finds them fast when it matters.",
@@ -519,10 +563,10 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
       serv3_li1:"Predictive models", serv3_li2:"Dashboards and reports", serv3_li3:"Decisions based on real data",
       proceso_eyebrow:"How we work", proceso_h2:"A process built together with you, step by step",
       proceso_sub:"We're involved in every stage so the result fits exactly how your business works.",
-      step1_h3:"We talk about your real process", step1_p:"What information you handle, what repeats every day, and who's going to use it — your customers, your team, or you.",
-      step2_h3:"We design the agent with you", step2_p:"A flow built specifically for your business and the way you work.",
-      step3_h3:"We test it together", step3_p:"Before it talks to a single real customer, we test it thoroughly.",
-      step4_h3:"We stick with it", step4_p:"We keep tuning the agent over time, as your business changes.",
+      step1_h3:"1. We talk about your real process", step1_p:"What information you handle, what repeats every day, and who's going to use it — your customers, your team, or you.",
+      step2_h3:"2. We design the agent with you", step2_p:"A flow built specifically for your business and the way you work.",
+      step3_h3:"3. We test it together", step3_p:"Before it talks to a single real customer, we test it thoroughly.",
+      step4_h3:"4. We stick with it", step4_p:"We keep tuning the agent over time, as your business changes.",
       dif_eyebrow:"Why us", dif_h2:"This is how we approach every project",
       dif_sub:"These are the principles behind everything we build.",
       dif1_h3:"🎯 Built to fit", dif1_p:"Every rule and flow is designed around your real process, not squeezed into a template.",
@@ -574,6 +618,21 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);}
   langBtn.addEventListener('click', function(){
     applyLang(htmlEl.getAttribute('lang') === 'es' ? 'en' : 'es');
   });
+
+  // Scroll-reveal animations
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
 })();
 </script>
 
