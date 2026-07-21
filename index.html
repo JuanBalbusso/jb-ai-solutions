@@ -145,9 +145,8 @@ html[data-theme="dark"] nav.scrolled .nav-inner{background:rgba(13,13,13,0.88);}
 @media (max-width:760px){.section-head-split{grid-template-columns:1fr;text-align:center;}.section-head-split .eyebrow{justify-content:center;margin:0 auto 1.1rem;}.section-head-split .section-sub{margin:0 auto;}}
 
 /* Mascot placeholder slot */
-.mascot-slot{width:170px;height:170px;flex-shrink:0;margin:0 auto;border:2px dashed var(--border);border-radius:24px;background:var(--bg-card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:1rem;text-align:center;}
-.mascot-slot-emoji{font-size:2.2rem;}
-.mascot-slot-label{font-size:0.72rem;font-style:italic;color:var(--ink-soft);line-height:1.3;}
+.mascot-figure{width:250px;height:250px;flex-shrink:0;margin:0 auto;display:flex;align-items:center;justify-content:center;}
+.mascot-figure img{max-width:100%;max-height:100%;filter:drop-shadow(0 18px 28px rgba(232,98,26,0.28));animation:float 6s ease-in-out infinite;}
 
 /* HERO */
 #hero{padding-top:9.5rem;padding-bottom:2.5rem;min-height:100vh;display:flex;align-items:center;}
@@ -168,7 +167,7 @@ h1 .hl{color:var(--orange);}
 .hero-proof div{font-family:var(--mono);}
 .hero-proof strong{display:block;font-size:1.4rem;color:var(--orange);}
 .hero-proof span{font-size:12.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.05em;}
-.hero-character img{max-width:380px;margin:0 auto;filter:drop-shadow(0 25px 40px rgba(232,98,26,0.28));animation:float 6s ease-in-out infinite;}
+.hero-character img{max-width:480px;margin:0 auto;filter:drop-shadow(0 25px 40px rgba(232,98,26,0.28));animation:float 6s ease-in-out infinite;}
 
 /* HERO CAROUSEL */
 .hero-carousel{position:relative;max-width:980px;margin:1rem auto 0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-soft);border:1px solid var(--border);background:var(--bg-card);}
@@ -249,8 +248,7 @@ h1 .hl{color:var(--orange);}
 #cta-final .btn-accent{background:#fff;color:var(--ink);box-shadow:0 8px 24px rgba(0,0,0,0.2);animation:none;}
 #cta-final .btn-accent:hover{background:#fff5ec;}
 .cta-mascot{margin:0 auto 1.5rem;}
-.cta-mascot .mascot-slot{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.4);}
-.cta-mascot .mascot-slot-label{color:rgba(255,255,255,0.85);}
+.cta-mascot .mascot-figure img{filter:drop-shadow(0 18px 30px rgba(0,0,0,0.25));}
 
 /* FOOTER */
 footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--bg);}
@@ -338,9 +336,8 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
         <h2 data-i18n="problema_h2">La información y los procesos no escalan solos</h2>
         <p class="section-sub" data-i18n="problema_sub">Información dispersa, procesos manuales que se repiten, y decisiones sin mirar los datos que ya tenés.</p>
       </div>
-      <div class="mascot-slot" data-mascot="problema">
-        <span class="mascot-slot-emoji">🤖</span>
-        <span class="mascot-slot-label" data-i18n="mascot_slot_problema">Acá va Chispa, ordenando la información dispersa</span>
+      <div class="mascot-figure">
+        <img src="robot-chispa-ordenando.png" alt="Chispa ordenando la información dispersa" loading="lazy">
       </div>
     </div>
     <div class="problema-grid">
@@ -371,9 +368,8 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
         <h2 data-i18n="servicios_h2">Tres formas de ponerle IA a tu negocio</h2>
         <p class="section-sub" data-i18n="servicios_sub">Diseñamos la solución específica que tu negocio necesita — para tus clientes, tu equipo, o ambos.</p>
       </div>
-      <div class="mascot-slot" data-mascot="servicios">
-        <span class="mascot-slot-emoji">🤖</span>
-        <span class="mascot-slot-label" data-i18n="mascot_slot_servicios">Acá va Chispa, presentando los tres servicios</span>
+      <div class="mascot-figure">
+        <img src="robot-chispa-servicios.png" alt="Chispa presentando los tres servicios" loading="lazy">
       </div>
     </div>
     <div class="servicios-grid">
@@ -451,9 +447,8 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
         <h2 data-i18n="dif_h2">Así encaramos cada proyecto</h2>
         <p class="section-sub" data-i18n="dif_sub">Estos son los principios que guían todo lo que construimos.</p>
       </div>
-      <div class="mascot-slot" data-mascot="diferenciales">
-        <span class="mascot-slot-emoji">🤖</span>
-        <span class="mascot-slot-label" data-i18n="mascot_slot_dif">Acá va Chispa, cuidando tus datos</span>
+      <div class="mascot-figure">
+        <img src="robot-chispa-datos.png" alt="Chispa cuidando tus datos" loading="lazy">
       </div>
     </div>
     <div class="dif-grid">
@@ -508,9 +503,8 @@ footer{padding:3rem 1.5rem;border-top:1px solid var(--border);background:var(--b
 <section id="cta-final">
   <div class="wrap reveal">
     <div class="cta-mascot">
-      <div class="mascot-slot" data-mascot="cta">
-        <span class="mascot-slot-emoji">🤖</span>
-        <span class="mascot-slot-label" data-i18n="mascot_slot_cta">Acá va Chispa, invitándote a escribir</span>
+      <div class="mascot-figure">
+        <img src="robot-chispa-invitando.png" alt="Chispa invitándote a escribir" loading="lazy">
       </div>
     </div>
     <div class="cta-panel">
